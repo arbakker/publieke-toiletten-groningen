@@ -1,6 +1,4 @@
-# PDOK OpenLayers WMTS in EPSG:28992
-
-Example web map applications showing how to use WMTS REST layers in RD projection (EPSG:28992) with [OpenLayers](https://openlayers.org/), see the [demo application](https://arbakker.github.io/pdok-js-map-examples/openlayers-wmts-epsg28992/index.html).
+# Webmap van publieke toiletten in Groningen
 
 Requires [`npm`](https://www.npmjs.com/).
 
