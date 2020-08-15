@@ -1,0 +1,19 @@
+#map {
+    height: 100vh;
+}
+
+body {
+    margin: 0px;
+    background-color: white;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.time-slider {
+    right: 0.5em;
+    top: .5em;
+    padding: 1em !important;
+}
+
+.ol-touch .time-slider {
+    top: 80px;
+}
