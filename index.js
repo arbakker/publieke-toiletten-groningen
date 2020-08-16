@@ -15,8 +15,9 @@ import toilets from './toilets.json'
 import { Control, defaults as defaultControls } from 'ol/control';
 import { toContext } from 'ol/render';
 import { Point } from 'ol/geom';
+import Overlay from 'ol/Overlay';
 
-const BRTA_ATTRIBUTION = 'Kaartgegevens: © <a href="http://www.cbs.nl">CBS</a>, <a href="http://www.kadaster.nl">Kadaster</a>, <a href="http://openstreetmap.org">OpenStreetMap</a><span class="printhide">-auteurs (<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>).</span>'
+const BRTA_ATTRIBUTION = 'Data publieke toiletten bewerkt voor test doeleinden (niet waarheidsgetrouw) <a href="http://openstreetmap.org">OpenStreetMap</a>, Achtergrondkaart: © <a href="http://www.cbs.nl">CBS</a>, <a href="http://www.kadaster.nl">Kadaster</a>, <a href="http://openstreetmap.org">OpenStreetMap</a><span class="printhide">-auteurs (<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>).</span>'
 
 var projection = getProjection('EPSG:3857');
 var projectionExtent = projection.getExtent();
@@ -245,6 +246,35 @@ var LegendControl = /*@__PURE__*/ (function(Control) {
     return LegendControl;
 }(Control));
 
+
+/**
+ * Elements that make up the popup.
+ */
+var container = document.getElementById('popup');
+var content = document.getElementById('popup-content');
+var closer = document.getElementById('popup-closer');
+
+/**
+ * Add a click handler to hide the popup.
+ * @return {boolean} Don't follow the href.
+ */
+closer.onclick = function() {
+    overlay.setPosition(undefined);
+    closer.blur();
+    return false;
+};
+
+/**
+ * Create an overlay to anchor the popup to the map.
+ */
+const overlay = new Overlay({
+    element: container,
+    autoPan: true,
+    autoPanAnimation: {
+        duration: 250,
+    },
+});
+
 const map = new Map({
     controls: defaultControls().extend([new TimeSliderControl(), new LegendControl()]),
     layers: [
@@ -252,6 +282,7 @@ const map = new Map({
         vectorLayer
     ],
     target: 'map',
+    overlays: [overlay],
     view: new View({
         center: fromLonLat([6.569695, 53.211223]),
         zoom: 13
@@ -261,7 +292,6 @@ const map = new Map({
 const generateLegend = features => {
     const vals = [true, false]
     const canvas = document.getElementById('canvas');
-    console.log(canvas)
     const canvasContext = canvas.getContext('2d')
     var vectorContext = toContext(canvasContext, {
         size: [180, 100]
@@ -294,3 +324,39 @@ const generateLegend = features => {
 };
 
 generateLegend(vectorSource.getFeatures());
+
+
+function genTableFromKVPs(kvps) {
+    var table = document.createElement('table');
+    Object.keys(kvps).forEach(function(key, index) {
+        var tr = document.createElement('tr');
+        var td1 = document.createElement('td');
+        var td2 = document.createElement('td');
+        td1.innerText = key
+        td2.innerText = kvps[key]
+        tr.appendChild(td1)
+        tr.appendChild(td2)
+        table.appendChild(tr)
+    })
+    return table
+}
+
+map.on('singleclick', function(evt) {
+    content.innerHTML = ""
+    var coordinate = evt.coordinate;
+    let ftAtPixel = false
+    map.forEachFeatureAtPixel(evt.pixel, function(feature, layer) {
+            let props = feature.getProperties()
+            delete props.geometry
+            const table = genTableFromKVPs(props)
+            content.appendChild(table)
+            ftAtPixel = true
+        })
+        // content.innerHTML = '<p>You clicked here:</p><code>' + hdms + '</code>';
+    if (ftAtPixel) {
+        overlay.setPosition(coordinate);
+    } else {
+        overlay.setPosition(undefined);
+        closer.blur();
+    }
+});
