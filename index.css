@@ -17,3 +17,9 @@ body {
 .ol-touch .time-slider {
     top: 80px;
 }
+
+.legend {
+    left: 0.5em;
+    bottom: .5em;
+    padding: 1em !important;
+}

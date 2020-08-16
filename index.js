@@ -13,6 +13,8 @@ import { Vector as VectorSource } from 'ol/source';
 import { Vector as VectorLayer } from 'ol/layer';
 import toilets from './toilets.json'
 import { Control, defaults as defaultControls } from 'ol/control';
+import { toContext } from 'ol/render';
+import { Point } from 'ol/geom';
 
 const BRTA_ATTRIBUTION = 'Kaartgegevens: © <a href="http://www.cbs.nl">CBS</a>, <a href="http://www.kadaster.nl">Kadaster</a>, <a href="http://openstreetmap.org">OpenStreetMap</a><span class="printhide">-auteurs (<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>).</span>'
 
@@ -117,33 +119,39 @@ function toiletOpen(feature, time) {
     return false
 }
 
+
+var openStyle = new Style({
+    image: new RegularShape({
+        fill: fill,
+        stroke: strokeOpen,
+        points: 4,
+        radius: 10,
+        radius2: 0,
+        angle: Math.PI / 4,
+    })
+})
+
+var closedStyle = new Style({
+    image: new RegularShape({
+        fill: fill,
+        stroke: strokeClosed,
+        points: 4,
+        radius: 10,
+        radius2: 0,
+        angle: Math.PI / 4,
+    })
+})
+
+
 function changeStyleToilets(time) {
 
     vectorLayer.setStyle(function(feature, resolution) {
         let open = toiletOpen(feature, time)
 
         if (open) {
-            return new Style({
-                image: new RegularShape({
-                    fill: fill,
-                    stroke: strokeOpen,
-                    points: 4,
-                    radius: 10,
-                    radius2: 0,
-                    angle: Math.PI / 4,
-                })
-            })
+            return openStyle
         } else {
-            return new Style({
-                image: new RegularShape({
-                    fill: fill,
-                    stroke: strokeClosed,
-                    points: 4,
-                    radius: 10,
-                    radius2: 0,
-                    angle: Math.PI / 4,
-                })
-            })
+            return closedStyle
         }
     })
 }
@@ -186,12 +194,10 @@ var TimeSliderControl = /*@__PURE__*/ (function(Control) {
         element.appendChild(slider)
         element.appendChild(label)
 
-
         Control.call(this, {
             element: element,
             target: options.target,
         });
-
     }
 
     if (Control) TimeSliderControl.__proto__ = Control;
@@ -206,8 +212,41 @@ var TimeSliderControl = /*@__PURE__*/ (function(Control) {
 }(Control));
 
 
+
+
+
+var LegendControl = /*@__PURE__*/ (function(Control) {
+    function LegendControl(opt_options) {
+        var options = opt_options || {};
+
+
+
+        let canvas = document.createElement("CANVAS");
+        canvas.setAttribute('id', 'canvas')
+
+        let element = document.createElement('div');
+        element.className = 'legend ol-unselectable ol-control';
+        element.appendChild(canvas)
+
+        Control.call(this, {
+            element: element,
+            target: options.target,
+        });
+    }
+
+    if (Control) LegendControl.__proto__ = Control;
+    LegendControl.prototype = Object.create(Control && Control.prototype);
+    LegendControl.prototype.constructor = LegendControl;
+
+    LegendControl.prototype.handleRotateNorth = function handleRotateNorth() {
+        this.getMap().getView().setRotation(0);
+    };
+
+    return LegendControl;
+}(Control));
+
 const map = new Map({
-    controls: defaultControls().extend([new TimeSliderControl()]),
+    controls: defaultControls().extend([new TimeSliderControl(), new LegendControl()]),
     layers: [
         brtGrijsWmtsLayer,
         vectorLayer
@@ -218,3 +257,40 @@ const map = new Map({
         zoom: 13
     })
 })
+
+const generateLegend = features => {
+    const vals = [true, false]
+    const canvas = document.getElementById('canvas');
+    console.log(canvas)
+    const canvasContext = canvas.getContext('2d')
+    var vectorContext = toContext(canvasContext, {
+        size: [180, 100]
+    });
+    let i = 1
+    canvasContext.font = "bold 16px Arial";
+    canvasContext.fillText("Publieke Toiletten in", 0, 20);
+    canvasContext.fillText("Groningen", 0, 40);
+
+    vals
+        .forEach(val => {
+            let newStyle
+            let label
+            if (val) {
+                newStyle = openStyle
+                label = "Open"
+            } else {
+                newStyle = closedStyle
+                label = "Gesloten"
+            }
+
+
+
+            vectorContext.setStyle(newStyle);
+            vectorContext.drawGeometry(new Point([10, 50 + (30 * (i - 1))]));
+            canvasContext.font = "16px Arial";
+            canvasContext.fillText(label, 35, 70 + (35 * (i - 1)));
+            i += 1
+        });
+};
+
+generateLegend(vectorSource.getFeatures());
