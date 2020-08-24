@@ -10,7 +10,7 @@
     "features": [{
             "type": "Feature",
             "properties": {
-                "open_from": "09:00",
+                "open_from": "10:00",
                 "open_until": "14:00",
                 "osm_id": "893020258",
                 "other_tags": "\"amenity\"=>\"toilets\",\"wheelchair\"=>\"no\""
