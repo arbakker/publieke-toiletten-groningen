@@ -234,8 +234,8 @@
         {
             "type": "Feature",
             "properties": {
-                "open_from": "10:00",
-                "open_until": "17:00",
+                "open_from": "07:00",
+                "open_until": "00:00",
                 "osm_id": "4511072289",
                 "other_tags": "\"amenity\"=>\"toilets\",\"fee\"=>\"yes\",\"level\"=>\"0\",\"operator\"=>\"Sanifair\""
             },
