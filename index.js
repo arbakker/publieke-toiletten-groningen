@@ -7,7 +7,7 @@ import { fromLonLat } from 'ol/proj'
 import GeoJSON from 'ol/format/GeoJSON';
 import { getTopLeft, getWidth } from 'ol/extent.js'
 import 'ol-layerswitcher/src/ol-layerswitcher.css'
-import {get as getProjection } from 'ol/proj'
+import { get as getProjection } from 'ol/proj'
 import { Fill, RegularShape, Stroke, Style } from 'ol/style';
 import { Vector as VectorSource } from 'ol/source';
 import { Vector as VectorLayer } from 'ol/layer';
@@ -144,15 +144,57 @@ var closedStyle = new Style({
 })
 
 
+function isFeatureIncludedInFilters(feature) {
+    let filterResult = []
+
+    if (filterUrinal()) {
+        let featureVal = feature.getProperties()["urinal_only"]
+        filterResult.push(filterUrinalValue() === featureVal)
+    }
+    if (filterFee()) {
+        let featureVal = feature.getProperties()["fee"]
+        filterResult.push(filterFeeValue() === featureVal)
+    }
+    if (filterAccesable()) {
+        let featureVal = feature.getProperties()["wheelchair"]
+        filterResult.push(filterAccesableValue() === featureVal)
+    }
+   
+    return filterResult.every(function(i) { return i; })
+}
+
+function filterFee() {
+    return document.getElementById("feeCheckbox").checked
+}
+function filterFeeValue() {
+    return document.getElementById("feeToggle").checked
+}
+
+function filterAccesable() {
+    return document.getElementById("accesableCheckbox").checked
+}
+function filterAccesableValue() {
+    return document.getElementById("accesableToggle").checked
+}
+
+function filterUrinal() {
+    return document.getElementById("urinalCheckbox").checked
+}
+function filterUrinalValue() {
+    return document.getElementById("urinalToggle").checked
+}
+
+
 function changeStyleToilets(time) {
 
-    vectorLayer.setStyle(function(feature, resolution) {
-        let open = toiletOpen(feature, time)
-
-        if (open) {
-            return openStyle
-        } else {
-            return closedStyle
+    vectorLayer.setStyle(function (feature, resolution) {
+        if (isFeatureIncludedInFilters(feature)) {
+            let open = toiletOpen(feature, time)
+            if (open) {
+                return openStyle
+            } else {
+                return closedStyle
+            }
         }
     })
 }
@@ -166,7 +208,19 @@ function getTimeStamp(sliderValue) {
     return `${hours}:${minutes}`
 }
 
-var TimeSliderControl = /*@__PURE__*/ (function(Control) {
+function updateStyle() {
+    let slider = document.getElementById("timeSlider")
+    let label = document.getElementById("timeLabel")
+
+    let timeString = getTimeStamp(slider.value)
+    label.innerHTML = `tijdstip ${timeString}`
+    changeStyleToilets(timeString)
+}
+
+
+
+
+var TimeSliderControl = /*@__PURE__*/ (function (Control) {
     function TimeSliderControl(opt_options) {
         var options = opt_options || {};
 
@@ -183,10 +237,8 @@ var TimeSliderControl = /*@__PURE__*/ (function(Control) {
         label.setAttribute('id', 'timeLabel')
 
 
-        slider.addEventListener('change', function(e) {
-            let timeString = getTimeStamp(slider.value)
-            label.innerHTML = `tijdstip ${timeString}`
-            changeStyleToilets(timeString)
+        slider.addEventListener('change', function (e) {
+            updateStyle()
         })
         label.innerHTML = `tijdstip ${getTimeStamp(slider.value)}`
 
@@ -213,15 +265,134 @@ var TimeSliderControl = /*@__PURE__*/ (function(Control) {
 }(Control));
 
 
-
-
-
-var LegendControl = /*@__PURE__*/ (function(Control) {
-    function LegendControl(opt_options) {
+var FilterControl = /*@__PURE__*/ (function (Control) {
+    function FilterControl(opt_options) {
         var options = opt_options || {};
 
 
+        let container = document.createElement('div')
+        let urinalDiv = document.createElement('div')
+        urinalDiv.setAttribute('id', 'urinalFilter')
+        let accessableDiv = document.createElement('div')
+        accessableDiv.setAttribute('id', 'accesableFilter')
+        let feeDiv = document.createElement('div')
+        feeDiv.setAttribute('id', 'feeFilter')
 
+        let urinalCheckbox = document.createElement('input')
+        let accesableCheckbox = document.createElement('input')
+        let feeCheckbox = document.createElement('input')
+
+        urinalCheckbox.setAttribute('id', 'urinalCheckbox')
+        accesableCheckbox.setAttribute('id', 'accesableCheckbox')
+        feeCheckbox.setAttribute('id', 'feeCheckbox')
+        urinalCheckbox.setAttribute('name', 'urinoir')
+        accesableCheckbox.setAttribute('name', 'toegankelijkheid')
+        feeCheckbox.setAttribute('name', 'betaald')
+
+        urinalCheckbox.setAttribute('type', 'checkbox')
+        accesableCheckbox.setAttribute('type', 'checkbox')
+        feeCheckbox.setAttribute('type', 'checkbox')
+
+        let urinalLabel = document.createElement('label')
+        let accesableLabel = document.createElement('label')
+        let feeLabel = document.createElement('label')
+        urinalLabel.setAttribute("for", "urinoir")
+        accesableLabel.setAttribute("for", "toegankelijkheid")
+        feeLabel.setAttribute("for", "betaald")
+        urinalLabel.innerText = "alleen urinoir"
+        accesableLabel.innerText = "rolstoel toegankelijk"
+        feeLabel.innerText = "betaald"
+
+        // create toggle urinal
+        let urinalToggleLabel = document.createElement('label')
+        urinalToggleLabel.classList.add("switch")
+        let urinalToggleCheckbox = document.createElement('input')
+        urinalToggleCheckbox.setAttribute("id", "urinalToggle")
+        urinalToggleCheckbox.setAttribute("type", "checkbox")
+        urinalToggleCheckbox.setAttribute("checked", null)
+        let urinalTogglespan = document.createElement('span')
+        urinalTogglespan.classList.add("slider", "round")
+        urinalToggleLabel.appendChild(urinalToggleCheckbox)
+        urinalToggleLabel.appendChild(urinalTogglespan)
+
+        // create toggle fee
+        let feeToggleLabel = document.createElement('label')
+        feeToggleLabel.classList.add("switch")
+        let feeToggleCheckbox = document.createElement('input')
+        feeToggleCheckbox.setAttribute("id", "feeToggle")
+        feeToggleCheckbox.setAttribute("type", "checkbox")
+        feeToggleCheckbox.setAttribute("checked", null)
+        let feeTogglespan = document.createElement('span')
+        feeTogglespan.classList.add("slider", "round")
+        feeToggleLabel.appendChild(feeToggleCheckbox)
+        feeToggleLabel.appendChild(feeTogglespan)
+
+        // create accesable fee
+        let accesableToggleLabel = document.createElement('label')
+        accesableToggleLabel.classList.add("switch")
+        let accesableToggleCheckbox = document.createElement('input')
+        accesableToggleCheckbox.setAttribute("id", "accesableToggle")
+        accesableToggleCheckbox.setAttribute("type", "checkbox")
+        accesableToggleCheckbox.setAttribute("checked", null)
+        let accesableTogglespan = document.createElement('span')
+        accesableTogglespan.classList.add("slider", "round")
+        accesableToggleLabel.appendChild(accesableToggleCheckbox)
+        accesableToggleLabel.appendChild(accesableTogglespan)
+
+        urinalDiv.append(urinalCheckbox)
+        urinalDiv.append(urinalLabel)
+        urinalDiv.append(urinalToggleLabel)
+
+        accessableDiv.append(accesableCheckbox)
+        accessableDiv.append(accesableLabel)
+        accessableDiv.append(accesableToggleLabel)
+
+        feeDiv.append(feeCheckbox)
+        feeDiv.append(feeLabel)
+        feeDiv.append(feeToggleLabel)
+
+        container.appendChild(urinalDiv)
+        container.appendChild(accessableDiv)
+        container.appendChild(feeDiv)
+
+        let element = document.createElement('div');
+        element.className = 'filter ol-unselectable ol-control';
+        element.appendChild(container)
+
+        let body = document.getElementsByTagName('body')[0]
+        body.addEventListener('click', event => {
+            if (event.target !== feeCheckbox && event.target !== accesableCheckbox && event.target !== urinalCheckbox
+                && event.target !== urinalToggleCheckbox && event.target !== feeToggleCheckbox && event.target !== accesableToggleCheckbox) {
+                return
+            }
+            //handle click
+            updateStyle()
+        })
+
+
+        Control.call(this, {
+            element: element,
+            target: options.target,
+        });
+    }
+
+    if (Control) FilterControl.__proto__ = Control;
+    FilterControl.prototype = Object.create(Control && Control.prototype);
+    FilterControl.prototype.constructor = FilterControl;
+
+    FilterControl.prototype.handleRotateNorth = function handleRotateNorth() {
+        this.getMap().getView().setRotation(0);
+    };
+
+    return FilterControl;
+}(Control));
+
+
+
+
+var LegendControl = /*@__PURE__*/ (function (Control) {
+    function LegendControl(opt_options) {
+        var options = opt_options || {};
         let canvas = document.createElement("CANVAS");
         canvas.setAttribute('id', 'canvas')
 
@@ -258,7 +429,7 @@ var closer = document.getElementById('popup-closer');
  * Add a click handler to hide the popup.
  * @return {boolean} Don't follow the href.
  */
-closer.onclick = function() {
+closer.onclick = function () {
     overlay.setPosition(undefined);
     closer.blur();
     return false;
@@ -276,7 +447,7 @@ const overlay = new Overlay({
 });
 
 const map = new Map({
-    controls: defaultControls().extend([new TimeSliderControl(), new LegendControl()]),
+    controls: defaultControls().extend([new TimeSliderControl(), new LegendControl(), new FilterControl()]),
     layers: [
         brtGrijsWmtsLayer,
         vectorLayer
@@ -328,7 +499,7 @@ generateLegend(vectorSource.getFeatures());
 
 function genTableFromKVPs(kvps) {
     var table = document.createElement('table');
-    Object.keys(kvps).forEach(function(key, index) {
+    Object.keys(kvps).forEach(function (key, index) {
         var tr = document.createElement('tr');
         var td1 = document.createElement('td');
         var td2 = document.createElement('td');
@@ -341,18 +512,18 @@ function genTableFromKVPs(kvps) {
     return table
 }
 
-map.on('singleclick', function(evt) {
+map.on('singleclick', function (evt) {
     content.innerHTML = ""
     var coordinate = evt.coordinate;
     let ftAtPixel = false
-    map.forEachFeatureAtPixel(evt.pixel, function(feature, layer) {
-            let props = feature.getProperties()
-            delete props.geometry
-            const table = genTableFromKVPs(props)
-            content.appendChild(table)
-            ftAtPixel = true
-        })
-        // content.innerHTML = '<p>You clicked here:</p><code>' + hdms + '</code>';
+    map.forEachFeatureAtPixel(evt.pixel, function (feature, layer) {
+        let props = feature.getProperties()
+        delete props.geometry
+        const table = genTableFromKVPs(props)
+        content.appendChild(table)
+        ftAtPixel = true
+    })
+    // content.innerHTML = '<p>You clicked here:</p><code>' + hdms + '</code>';
     if (ftAtPixel) {
         overlay.setPosition(coordinate);
     } else {
@@ -360,3 +531,5 @@ map.on('singleclick', function(evt) {
         closer.blur();
     }
 });
+
+updateStyle()
