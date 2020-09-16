@@ -103,9 +103,13 @@ function getHoursFromMidnight(time, previous = "") {
     }
 }
 
-function toiletOpen(feature, time) {
-    let hoursFMFrom = getHoursFromMidnight(feature.getProperties()["open_from"])
-    let hoursFMUntil = getHoursFromMidnight(feature.getProperties()["open_until"], feature.getProperties()["open_from"])
+function toiletOpen(feature, day, time) {
+    let hoursDay = feature.getProperties()["openinghours"][day]
+    let hoursFrom = hoursDay.split(" - ")[0]
+    let hoursUntil = hoursDay.split(" - ")[1]
+
+    let hoursFMFrom = getHoursFromMidnight(hoursFrom)
+    let hoursFMUntil = getHoursFromMidnight(hoursUntil, hoursFrom)
     let hoursFMCurrent = getHoursFromMidnight(time)
     if (hoursFMCurrent >= hoursFMFrom && hoursFMCurrent <= hoursFMUntil) {
         return true
@@ -185,11 +189,14 @@ function filterUrinalValue() {
 }
 
 
-function changeStyleToilets(time) {
-
+function changeStyleToilets(day, time) {
     vectorLayer.setStyle(function (feature, resolution) {
         if (isFeatureIncludedInFilters(feature)) {
-            let open = toiletOpen(feature, time)
+            let checkbox = document.getElementById("timeCheckbox") 
+            if ( !checkbox ||  !checkbox.checked) {
+                return openStyle
+            }
+            let open = toiletOpen(feature, day, time)
             if (open) {
                 return openStyle
             } else {
@@ -214,7 +221,9 @@ function updateStyle() {
 
     let timeString = getTimeStamp(slider.value)
     label.innerHTML = `tijdstip ${timeString}`
-    changeStyleToilets(timeString)
+
+    let day = document.querySelector('input[name="radioDay"]:checked').value;
+    changeStyleToilets(day,timeString)
 }
 
 
@@ -223,6 +232,43 @@ function updateStyle() {
 var TimeSliderControl = /*@__PURE__*/ (function (Control) {
     function TimeSliderControl(opt_options) {
         var options = opt_options || {};
+        let body = document.getElementsByTagName('body')[0]
+
+        let timeCheckbox = document.createElement('input')
+
+        timeCheckbox.setAttribute('id', 'timeCheckbox')
+        timeCheckbox.setAttribute('name', 'time')
+        timeCheckbox.setAttribute("type", "checkbox")
+        // timeCheckbox.setAttribute("checked", null)
+        
+        // see https://jsfiddle.net/pga592ry/
+
+        const days = ['ma', 'di', 'wo', 'do', 'vr', 'za','zo']
+        let dayDiv = document.createElement("div")
+        dayDiv.className = "radio-toolbar"
+        let first = true
+        days.forEach(function(day){
+            // <input type="radio" id="rMa" name="rDay" value="ma" checked>
+            // <label for="rMa">ma</label>
+            
+            let rd = document.createElement('input')
+            rd.setAttribute("type", "radio")
+            rd.setAttribute("id", `${day}`)
+            rd.setAttribute("name", "radioDay")
+            rd.setAttribute("value", day)
+            
+            if (first){
+                rd.checked = true
+                first=false
+            }
+            
+            let rdLabel = document.createElement('label')
+            rdLabel.innerText = day
+            rdLabel.setAttribute("for", `${day}`)
+            dayDiv.appendChild(rd)
+            dayDiv.appendChild(rdLabel)
+        });
+
 
 
         let slider = document.createElement('input')
@@ -244,8 +290,25 @@ var TimeSliderControl = /*@__PURE__*/ (function (Control) {
 
         let element = document.createElement('div');
         element.className = 'time-slider ol-unselectable ol-control';
+        
+        let firstDiv = document.createElement('div')
+        firstDiv.className = "inline-parent"
+    
+        firstDiv.appendChild(timeCheckbox)
+        firstDiv.appendChild(dayDiv)
+        element.appendChild(firstDiv)
         element.appendChild(slider)
         element.appendChild(label)
+
+        body.addEventListener('click', event => {
+            if (event.target !== timeCheckbox && event.target.name !== "radioDay") {
+                return
+            }
+            if (event.target.name === "radioDay" && !timeCheckbox.checked){return}
+            //handle click
+            updateStyle()
+        })
+
 
         Control.call(this, {
             element: element,
@@ -311,7 +374,7 @@ var FilterControl = /*@__PURE__*/ (function (Control) {
         urinalToggleCheckbox.setAttribute("type", "checkbox")
         urinalToggleCheckbox.setAttribute("checked", null)
         let urinalTogglespan = document.createElement('span')
-        urinalTogglespan.classList.add("slider", "round")
+        urinalTogglespan.classList.add("slider-round")
         urinalToggleLabel.appendChild(urinalToggleCheckbox)
         urinalToggleLabel.appendChild(urinalTogglespan)
 
@@ -323,7 +386,7 @@ var FilterControl = /*@__PURE__*/ (function (Control) {
         feeToggleCheckbox.setAttribute("type", "checkbox")
         feeToggleCheckbox.setAttribute("checked", null)
         let feeTogglespan = document.createElement('span')
-        feeTogglespan.classList.add("slider", "round")
+        feeTogglespan.classList.add("slider-round")
         feeToggleLabel.appendChild(feeToggleCheckbox)
         feeToggleLabel.appendChild(feeTogglespan)
 
@@ -335,7 +398,7 @@ var FilterControl = /*@__PURE__*/ (function (Control) {
         accesableToggleCheckbox.setAttribute("type", "checkbox")
         accesableToggleCheckbox.setAttribute("checked", null)
         let accesableTogglespan = document.createElement('span')
-        accesableTogglespan.classList.add("slider", "round")
+        accesableTogglespan.classList.add("slider-round")
         accesableToggleLabel.appendChild(accesableToggleCheckbox)
         accesableToggleLabel.appendChild(accesableTogglespan)
 

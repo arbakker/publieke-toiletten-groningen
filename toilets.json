@@ -11,12 +11,19 @@
         {
             "type": "Feature",
             "properties": {
-                "open_from": "10:00:00",
-                "open_until": "14:00:00",
+                "openinghours": {
+                    "di": "09:00 - 18:00",
+                    "do": "09:00 - 21:00",
+                    "ma": "13:00 - 18:00",
+                    "vr": "09:00 - 18:00",
+                    "wo": "09:00 - 18:00",
+                    "za": "09:00 - 18:00",
+                    "zo": "11:30 - 17:30"
+                },
                 "wheelchair": false,
                 "urinal_only": false,
-                "fee": false,
-                "name": ""
+                "fee": true,
+                "name": "Boumatoilet"
             },
             "geometry": {
                 "type": "Point",
@@ -29,12 +36,19 @@
         {
             "type": "Feature",
             "properties": {
-                "open_from": "09:00:00",
-                "open_until": "14:00:00",
+                "openinghours": {
+                    "di": "00:00 - 24:00",
+                    "do": "00:00 - 24:00",
+                    "ma": "00:00 - 24:00",
+                    "vr": "00:00 - 24:00",
+                    "wo": "00:00 - 24:00",
+                    "za": "00:00 - 24:00",
+                    "zo": "00:00 - 24:00"
+                },
                 "wheelchair": false,
                 "urinal_only": false,
                 "fee": false,
-                "name": "Openbare toilet haven"
+                "name": "Koolhaas"
             },
             "geometry": {
                 "type": "Point",
@@ -47,8 +61,15 @@
         {
             "type": "Feature",
             "properties": {
-                "open_from": "09:00:00",
-                "open_until": "18:00:00",
+                "openinghours": {
+                    "di": "08:00 - 21:00",
+                    "do": "08:00 - 21:00",
+                    "ma": "08:00 - 21:00",
+                    "vr": "08:00 - 21:00",
+                    "wo": "08:00 - 21:00",
+                    "za": "08:00 - 21:00",
+                    "zo": "08:00 - 21:00"
+                },
                 "wheelchair": true,
                 "urinal_only": false,
                 "fee": true,
@@ -65,12 +86,19 @@
         {
             "type": "Feature",
             "properties": {
-                "open_from": "12:00:00",
-                "open_until": "17:00:00",
+                "openinghours": {
+                    "di": "00:00 - 24:00",
+                    "do": "00:00 - 24:00",
+                    "ma": "00:00 - 24:00",
+                    "vr": "00:00 - 24:00",
+                    "wo": "00:00 - 24:00",
+                    "za": "00:00 - 24:00",
+                    "zo": "00:00 - 24:00"
+                },
                 "wheelchair": false,
-                "urinal_only": false,
+                "urinal_only": true,
                 "fee": false,
-                "name": null
+                "name": "Urinoir Kerklaan"
             },
             "geometry": {
                 "type": "Point",
@@ -83,12 +111,19 @@
         {
             "type": "Feature",
             "properties": {
-                "open_from": "12:00:00",
-                "open_until": "22:00:00",
+                "openinghours": {
+                    "di": "00:00 - 24:00",
+                    "do": "00:00 - 24:00",
+                    "ma": "00:00 - 24:00",
+                    "vr": "00:00 - 24:00",
+                    "wo": "00:00 - 24:00",
+                    "za": "00:00 - 24:00",
+                    "zo": "00:00 - 24:00"
+                },
                 "wheelchair": false,
                 "urinal_only": true,
                 "fee": false,
-                "name": null
+                "name": "Urinoir Schuitendiep/Damsterdiep"
             },
             "geometry": {
                 "type": "Point",
@@ -101,12 +136,19 @@
         {
             "type": "Feature",
             "properties": {
-                "open_from": "12:00:00",
-                "open_until": "21:00:00",
+                "openinghours": {
+                    "di": "00:00 - 24:00",
+                    "do": "00:00 - 24:00",
+                    "ma": "00:00 - 24:00",
+                    "vr": "00:00 - 24:00",
+                    "wo": "00:00 - 24:00",
+                    "za": "00:00 - 24:00",
+                    "zo": "00:00 - 24:00"
+                },
                 "wheelchair": false,
-                "urinal_only": false,
+                "urinal_only": true,
                 "fee": false,
-                "name": null
+                "name": "Urinoir Hoge der Aa/Visserstraat"
             },
             "geometry": {
                 "type": "Point",
@@ -119,12 +161,19 @@
         {
             "type": "Feature",
             "properties": {
-                "open_from": "09:00:00",
-                "open_until": "14:00:00",
+                "openinghours": {
+                    "di": "09:00 - 21:00",
+                    "do": "09:00 - 21:00",
+                    "ma": "09:00 - 21:00",
+                    "vr": "09:00 - 21:00",
+                    "wo": "09:00 - 21:00",
+                    "za": "09:00 - 21:00",
+                    "zo": "09:00 - 21:00"
+                },
                 "wheelchair": false,
                 "urinal_only": false,
                 "fee": false,
-                "name": null
+                "name": "Toilet Speelweide"
             },
             "geometry": {
                 "type": "Point",
@@ -137,12 +186,19 @@
         {
             "type": "Feature",
             "properties": {
-                "open_from": "09:00:00",
-                "open_until": "14:00:00",
+                "openinghours": {
+                    "di": "00:00 - 24:00",
+                    "do": "00:00 - 24:00",
+                    "ma": "00:00 - 24:00",
+                    "vr": "00:00 - 24:00",
+                    "wo": "00:00 - 24:00",
+                    "za": "00:00 - 24:00",
+                    "zo": "00:00 - 24:00"
+                },
                 "wheelchair": false,
-                "urinal_only": false,
+                "urinal_only": true,
                 "fee": false,
-                "name": null
+                "name": "Eendrachtskade"
             },
             "geometry": {
                 "type": "Point",
@@ -155,12 +211,19 @@
         {
             "type": "Feature",
             "properties": {
-                "open_from": "23:00:00",
-                "open_until": "05:00:00",
+                "openinghours": {
+                    "di": "09:00 - 21:00",
+                    "do": "09:00 - 21:00",
+                    "ma": "09:00 - 21:00",
+                    "vr": "09:00 - 21:00",
+                    "wo": "09:00 - 21:00",
+                    "za": "09:00 - 21:00",
+                    "zo": "09:00 - 21:00"
+                },
                 "wheelchair": false,
                 "urinal_only": false,
                 "fee": false,
-                "name": null
+                "name": "Toilet vijver plantsoen"
             },
             "geometry": {
                 "type": "Point",
@@ -173,12 +236,19 @@
         {
             "type": "Feature",
             "properties": {
-                "open_from": "09:00:00",
-                "open_until": "14:00:00",
+                "openinghours": {
+                    "di": "00:00 - 24:00",
+                    "do": "00:00 - 24:00",
+                    "ma": "00:00 - 24:00",
+                    "vr": "00:00 - 24:00",
+                    "wo": "00:00 - 24:00",
+                    "za": "00:00 - 24:00",
+                    "zo": "00:00 - 24:00"
+                },
                 "wheelchair": true,
                 "urinal_only": false,
                 "fee": true,
-                "name": "Publiek toilet Grote Markt"
+                "name": "Publiek toilet VVV Grote Markt"
             },
             "geometry": {
                 "type": "Point",
@@ -191,8 +261,15 @@
         {
             "type": "Feature",
             "properties": {
-                "open_from": "22:00:00",
-                "open_until": "03:00:00",
+                "openinghours": {
+                    "di": "00:00 - 24:00",
+                    "do": "00:00 - 24:00",
+                    "ma": "00:00 - 24:00",
+                    "vr": "00:00 - 24:00",
+                    "wo": "00:00 - 24:00",
+                    "za": "00:00 - 24:00",
+                    "zo": "00:00 - 24:00"
+                },
                 "wheelchair": false,
                 "urinal_only": true,
                 "fee": false,
@@ -209,8 +286,15 @@
         {
             "type": "Feature",
             "properties": {
-                "open_from": "22:00:00",
-                "open_until": "03:00:00",
+                "openinghours": {
+                    "di": "00:00 - 24:00",
+                    "do": "00:00 - 24:00",
+                    "ma": "00:00 - 24:00",
+                    "vr": "00:00 - 24:00",
+                    "wo": "00:00 - 24:00",
+                    "za": "00:00 - 24:00",
+                    "zo": "00:00 - 24:00"
+                },
                 "wheelchair": false,
                 "urinal_only": true,
                 "fee": false,
@@ -227,8 +311,15 @@
         {
             "type": "Feature",
             "properties": {
-                "open_from": "22:00:00",
-                "open_until": "03:00:00",
+                "openinghours": {
+                    "di": "00:00 - 24:00",
+                    "do": "00:00 - 24:00",
+                    "ma": "00:00 - 24:00",
+                    "vr": "00:00 - 24:00",
+                    "wo": "00:00 - 24:00",
+                    "za": "00:00 - 24:00",
+                    "zo": "00:00 - 24:00"
+                },
                 "wheelchair": false,
                 "urinal_only": true,
                 "fee": false,
@@ -245,8 +336,15 @@
         {
             "type": "Feature",
             "properties": {
-                "open_from": "00:00:00",
-                "open_until": "00:00:00",
+                "openinghours": {
+                    "di": "00:00 - 24:00",
+                    "do": "00:00 - 24:00",
+                    "ma": "00:00 - 24:00",
+                    "vr": "00:00 - 24:00",
+                    "wo": "00:00 - 24:00",
+                    "za": "00:00 - 24:00",
+                    "zo": "00:00 - 24:00"
+                },
                 "wheelchair": false,
                 "urinal_only": true,
                 "fee": false,

@@ -7,9 +7,13 @@ body {
     background-color: white;
     font-family: Arial, Helvetica, sans-serif;
 }
+#timeSlider{
+  width: 90%;
+}
+
 
 .time-slider {
-    right: 3em;
+    right: 0.5em;
     top: 10em;
     padding: 1em !important;
 }
@@ -22,8 +26,12 @@ body {
 }
 
 
-.ol-touch .time-slider {
+.ol-touch .time-slider{
     top: 80px;
+}
+
+.time-slider.ol-control{
+  width:300px;
 }
 
 .legend {
@@ -98,7 +106,7 @@ body {
   }
   
   /* The slider */
-  .slider {
+  .slider-round {
     position: absolute;
     cursor: pointer;
     top: 0;
@@ -110,7 +118,7 @@ body {
     transition: .4s;
   }
   
-  .slider:before {
+  .slider-round:before {
     position: absolute;
     content: "";
     height: 26px;
@@ -122,25 +130,63 @@ body {
     transition: .4s;
   }
   
-  input:checked + .slider {
+  input:checked + .slider-round {
     background-color: #2196F3;
   }
   
-  input:focus + .slider {
+  input:focus + .slider-round {
     box-shadow: 0 0 1px #2196F3;
   }
   
-  input:checked + .slider:before {
+  input:checked + .slider-round:before {
     -webkit-transform: translateX(26px);
     -ms-transform: translateX(26px);
     transform: translateX(26px);
   }
   
   /* Rounded sliders */
-  .slider.round {
+  .slider-round {
     border-radius: 34px;
+    transform: scale(0.8);
   }
   
-  .slider.round:before {
+  .slider-round:before {
     border-radius: 50%;
   } 
+
+
+
+
+  .radio-toolbar {
+    margin: 10px;
+  }
+  
+  .radio-toolbar input[type="radio"] {
+    opacity: 0;
+    position: fixed;
+    width: 0;
+  }
+  
+  .radio-toolbar label {
+      display: inline-block;
+      background-color: #ddd;
+      padding: 5px 10px;
+      font-family: sans-serif, Arial;
+      font-size: 10px;
+      border-radius: 4px;
+      margin-right:5px;
+  }
+  
+  .radio-toolbar label:hover {
+    background-color: #93c9f2;
+  }
+  
+  .radio-toolbar input[type="radio"]:checked + label {
+      background-color: #2196F3;
+  }
+  
+  
+  #timeCheckbox{
+    float:left;
+    margin-right:0.5em;
+  }
