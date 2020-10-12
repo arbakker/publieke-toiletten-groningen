@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "parcel index.html",
-    "build": "parcel build --public-url . index.html"
+    "start": "cp -r images dist/ && parcel index.html",
+    "build": "parcel build --public-url . index.html && cp -r images dist/"
   },
   "keywords": [],
   "author": "",
