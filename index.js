@@ -836,11 +836,13 @@ map.on('singleclick', function (evt) {
     var coordinate = evt.coordinate;
     let ftAtPixel = false
     map.forEachFeatureAtPixel(evt.pixel, function (feature, layer) {
-        let props = feature.getProperties()
-        delete props.geometry
-        const table = genTableFromKVPs(props)
-        content.appendChild(table)
-        ftAtPixel = true
+        if (layer === vectorLayer){
+            let props = feature.getProperties()
+            delete props.geometry
+            const table = genTableFromKVPs(props)
+            content.appendChild(table)
+            ftAtPixel = true
+        }
     })
     // content.innerHTML = '<p>You clicked here:</p><code>' + hdms + '</code>';
     if (ftAtPixel) {
