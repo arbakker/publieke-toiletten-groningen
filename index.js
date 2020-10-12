@@ -11,13 +11,15 @@ import { get as getProjection } from 'ol/proj'
 import { Fill, RegularShape, Stroke, Style } from 'ol/style';
 import { Vector as VectorSource } from 'ol/source';
 import { Vector as VectorLayer } from 'ol/layer';
-import toilets from './toilets.json'
 import { Control, defaults as defaultControls } from 'ol/control';
 import { toContext } from 'ol/render';
 import { Point } from 'ol/geom';
 import Overlay from 'ol/Overlay';
+import toilets from './toilets.json'
+import buffer250 from './buffer_250.json'
+import buffer500 from './buffer_500.json'
+import { isTypeUnique } from 'ol/style/expressions'
 
-const BRTA_ATTRIBUTION = 'Data publieke toiletten bewerkt voor test doeleinden (niet waarheidsgetrouw) <a href="http://openstreetmap.org">OpenStreetMap</a>, Achtergrondkaart: © <a href="http://www.cbs.nl">CBS</a>, <a href="http://www.kadaster.nl">Kadaster</a>, <a href="http://openstreetmap.org">OpenStreetMap</a><span class="printhide">-auteurs (<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>).</span>'
 
 var projection = getProjection('EPSG:3857');
 var projectionExtent = projection.getExtent();
@@ -42,7 +44,7 @@ function getWmtsLayer(layername) {
             layer: layername,
             matrixSet: 'EPSG:3857',
             format: 'image/png',
-            attributions: BRTA_ATTRIBUTION,
+            attributions: " ",
             tileGrid: new WMTSTileGrid({
                 origin: getTopLeft(projectionExtent),
                 resolutions: resolutions,
@@ -57,8 +59,22 @@ var vectorSource = new VectorSource({
     features: new GeoJSON().readFeatures(toilets),
 })
 
-var strokeClosed = new Stroke({ color: 'gray', width: 2 });
-var strokeOpen = new Stroke({ color: 'green', width: 2 });
+var vectorSourceB250 = new VectorSource({
+    features: new GeoJSON().readFeatures(buffer250),
+})
+
+var vectorSourceB500 = new VectorSource({
+    features: new GeoJSON().readFeatures(buffer500),
+})
+
+
+var strokeClosed = new Stroke({ color: 'rgb(128, 128, 128)', width: 2 });
+var strokeOpen = new Stroke({ color: 'rgb(243,110,33)', width: 2 });
+
+
+
+var fillOpen = new Fill({color: 'rgba(243,110,33, 0.7)'})
+var fillClosed = new Fill({color: 'rgba(128, 128, 128, 1)'})
 
 var fill = new Fill({ color: 'red' });
 var vectorLayer = new VectorLayer({
@@ -69,10 +85,24 @@ var vectorLayer = new VectorLayer({
             stroke: strokeOpen,
             points: 4,
             radius: 10,
-            radius2: 0,
             angle: Math.PI / 4,
         })
     })
+})
+var styleB250 = new Style({
+    fill:  new Fill({color: 'rgba(33, 150, 243, 0.3)', })
+})
+var vectorLayerB250 = new VectorLayer({
+    source: vectorSourceB250,
+    style: styleB250
+})
+var styleB500 = new Style({
+    fill:  new Fill({color: 'rgb(130, 193, 242, 0.3)',})
+});
+
+var vectorLayerB500 = new VectorLayer({
+    source: vectorSourceB500,
+    style: styleB500
 })
 
 
@@ -127,22 +157,20 @@ function toiletOpen(feature, day, time) {
 
 var openStyle = new Style({
     image: new RegularShape({
-        fill: fill,
-        stroke: strokeOpen,
-        points: 4,
-        radius: 10,
-        radius2: 0,
-        angle: Math.PI / 4,
+        fill: fillOpen,
+            stroke: strokeOpen,
+            points: 4,
+            radius: 6,
+            angle: Math.PI / 4,
     })
 })
 
 var closedStyle = new Style({
     image: new RegularShape({
-        fill: fill,
+        fill: fillClosed,
         stroke: strokeClosed,
         points: 4,
-        radius: 10,
-        radius2: 0,
+        radius: 6,
         angle: Math.PI / 4,
     })
 })
@@ -153,6 +181,7 @@ function isFeatureIncludedInFilters(feature) {
 
     if (filterUrinal()) {
         let featureVal = feature.getProperties()["urinal_only"]
+        console.log(featureVal)
         filterResult.push(filterUrinalValue() === featureVal)
     }
     if (filterFee()) {
@@ -163,8 +192,16 @@ function isFeatureIncludedInFilters(feature) {
         let featureVal = feature.getProperties()["wheelchair"]
         filterResult.push(filterAccesableValue() === featureVal)
     }
+    if (filterOwnership()) {
+        let featureVal = feature.getProperties()["ownership"]
+        filterResult.push(filterOwnershipValues().includes(featureVal))
+    }
    
     return filterResult.every(function(i) { return i; })
+}
+
+function filterOwnership(){
+    return document.getElementById("ownershipCheckbox").checked
 }
 
 function filterFee() {
@@ -179,6 +216,25 @@ function filterAccesable() {
 }
 function filterAccesableValue() {
     return document.getElementById("accesableToggle").checked
+}
+
+function filterOwnershipValues(){
+    let spans = document.querySelectorAll(".spanSelector");
+    
+    let selected = []
+    for (let i = 0; i < spans.length; ++i) {
+        let span = spans[i]
+        if (span.classList.contains("selected")){
+            if (span.innerText === "publiek"){
+                selected.push("public")
+            }else if (span.innerText === "privaat"){
+                selected.push("private")
+            }else if (span.innerText === "straat"){
+                selected.push("municipal")
+            }
+        }
+      }
+    return selected
 }
 
 function filterUrinal() {
@@ -206,6 +262,44 @@ function changeStyleToilets(day, time) {
     })
 }
 
+function changeStyleB250(day, time) {
+    vectorLayerB250.setStyle(function (feature, resolution) {
+        if (isFeatureIncludedInFilters(feature)) {
+            let checkbox = document.getElementById("timeCheckbox") 
+            if ( !checkbox ||  !checkbox.checked) {
+                return styleB250
+            }
+            let open = toiletOpen(feature, day, time)
+            if (open) {
+                return styleB250
+            } else {
+                return new Style({})
+            }
+        }
+    })
+}
+
+
+function changeStyleB500(day, time) {
+    vectorLayerB500.setStyle(function (feature, resolution) {
+        if (isFeatureIncludedInFilters(feature)) {
+            let checkbox = document.getElementById("timeCheckbox") 
+            if ( !checkbox ||  !checkbox.checked) {
+                return styleB500
+            }
+            let open = toiletOpen(feature, day, time)
+            if (open) {
+                return styleB500
+            } else {
+                return new Style({})
+            }
+        }
+    })
+}
+
+
+
+
 function getTimeStamp(sliderValue) {
     let hours = Math.floor(sliderValue / 60).toString().padStart(2, '0');
     let minutes = (sliderValue % 60).toString().padStart(2, '0');
@@ -224,6 +318,8 @@ function updateStyle() {
 
     let day = document.querySelector('input[name="radioDay"]:checked').value;
     changeStyleToilets(day,timeString)
+    changeStyleB500(day,timeString)
+    changeStyleB250(day,timeString)
 }
 
 
@@ -338,33 +434,67 @@ var FilterControl = /*@__PURE__*/ (function (Control) {
         urinalDiv.setAttribute('id', 'urinalFilter')
         let accessableDiv = document.createElement('div')
         accessableDiv.setAttribute('id', 'accesableFilter')
+        let accessable2Div = document.createElement('div')
+        accessable2Div.setAttribute('id', 'accesableFilter2')
         let feeDiv = document.createElement('div')
         feeDiv.setAttribute('id', 'feeFilter')
 
+        let ownershipDiv = document.createElement('div')
+        ownershipDiv.setAttribute('id', 'ownership')
+
         let urinalCheckbox = document.createElement('input')
         let accesableCheckbox = document.createElement('input')
+        let accesable2Checkbox = document.createElement('input')
         let feeCheckbox = document.createElement('input')
+        let ownershipCheckbox = document.createElement('input')
+
 
         urinalCheckbox.setAttribute('id', 'urinalCheckbox')
         accesableCheckbox.setAttribute('id', 'accesableCheckbox')
         feeCheckbox.setAttribute('id', 'feeCheckbox')
+        accesable2Checkbox.setAttribute('id', 'accesable2Checkbox')
+        ownershipCheckbox.setAttribute('id', 'ownershipCheckbox')
         urinalCheckbox.setAttribute('name', 'urinoir')
         accesableCheckbox.setAttribute('name', 'toegankelijkheid')
+        accesable2Checkbox.setAttribute('name', 'toegankelijkheid-2')
         feeCheckbox.setAttribute('name', 'betaald')
 
         urinalCheckbox.setAttribute('type', 'checkbox')
         accesableCheckbox.setAttribute('type', 'checkbox')
+        accesable2Checkbox.setAttribute('type', 'checkbox')
         feeCheckbox.setAttribute('type', 'checkbox')
+        ownershipCheckbox.setAttribute('type', 'checkbox')
 
         let urinalLabel = document.createElement('label')
         let accesableLabel = document.createElement('label')
+        let accesable2Label = document.createElement('label')
         let feeLabel = document.createElement('label')
+        let ownershipLabel = document.createElement('label')
+
         urinalLabel.setAttribute("for", "urinoir")
         accesableLabel.setAttribute("for", "toegankelijkheid")
+        accesable2Label.setAttribute("for", "toegankelijkheid-2")
         feeLabel.setAttribute("for", "betaald")
+        ownershipLabel.setAttribute("for","eigendom")
         urinalLabel.innerText = "alleen urinoir"
         accesableLabel.innerText = "rolstoel toegankelijk"
+        accesable2Label.innerText  = "rolstoel toegankelijk +"
         feeLabel.innerText = "betaald"
+        ownershipLabel.innerText = "eigendom"
+        
+        // create eigendom selector
+        let publiekSpan = document.createElement('span')
+        publiekSpan.id = "publiekSpan"
+        publiekSpan.innerText = "publiek"
+        publiekSpan.classList.add("spanSelector")
+        let privateSpan = document.createElement('span')
+        privateSpan.id = "privateSpan"
+        privateSpan.classList.add("spanSelector")
+        privateSpan.innerText = "privaat"
+        let streetSpan = document.createElement('span')
+        streetSpan.id = "streetSpan"   
+        streetSpan.classList.add("spanSelector")
+        streetSpan.innerText = "straat"
 
         // create toggle urinal
         let urinalToggleLabel = document.createElement('label')
@@ -402,6 +532,24 @@ var FilterControl = /*@__PURE__*/ (function (Control) {
         accesableToggleLabel.appendChild(accesableToggleCheckbox)
         accesableToggleLabel.appendChild(accesableTogglespan)
 
+        // create accesable2 fee
+        let accesable2ToggleLabel = document.createElement('label')
+        accesable2ToggleLabel.classList.add("switch")
+        let accesable2ToggleCheckbox = document.createElement('input')
+        accesable2ToggleCheckbox.setAttribute("id", "accesableToggle")
+        accesable2ToggleCheckbox.setAttribute("type", "checkbox")
+        accesable2ToggleCheckbox.setAttribute("checked", null)
+        let accesable2Togglespan = document.createElement('span')
+        accesable2Togglespan.classList.add("slider-round")
+        accesable2ToggleLabel.appendChild(accesable2ToggleCheckbox)
+        accesable2ToggleLabel.appendChild(accesable2Togglespan)
+
+        ownershipDiv.append(ownershipCheckbox)
+        ownershipDiv.append(ownershipLabel)
+        ownershipDiv.append(streetSpan)
+        ownershipDiv.append(publiekSpan)
+        ownershipDiv.append(privateSpan)
+
         urinalDiv.append(urinalCheckbox)
         urinalDiv.append(urinalLabel)
         urinalDiv.append(urinalToggleLabel)
@@ -410,25 +558,43 @@ var FilterControl = /*@__PURE__*/ (function (Control) {
         accessableDiv.append(accesableLabel)
         accessableDiv.append(accesableToggleLabel)
 
+        accessable2Div.append(accesable2Checkbox)
+        accessable2Div.append(accesable2Label)
+        accessable2Div.append(accesable2ToggleLabel)
+
         feeDiv.append(feeCheckbox)
         feeDiv.append(feeLabel)
         feeDiv.append(feeToggleLabel)
 
         container.appendChild(urinalDiv)
         container.appendChild(accessableDiv)
+        container.appendChild(accessable2Div)
         container.appendChild(feeDiv)
+        container.appendChild(ownershipDiv)
+
 
         let element = document.createElement('div');
         element.className = 'filter ol-unselectable ol-control';
         element.appendChild(container)
 
         let body = document.getElementsByTagName('body')[0]
+
+
         body.addEventListener('click', event => {
-            if (event.target !== feeCheckbox && event.target !== accesableCheckbox && event.target !== urinalCheckbox
-                && event.target !== urinalToggleCheckbox && event.target !== feeToggleCheckbox && event.target !== accesableToggleCheckbox) {
+            if (event.target !== feeCheckbox && event.target !== accesableCheckbox && event.target !== accesable2Checkbox && event.target !== urinalCheckbox
+                && event.target !== urinalToggleCheckbox && event.target !== feeToggleCheckbox && event.target !== accesableToggleCheckbox
+                && event.target !== accesable2ToggleCheckbox && event.target !== privateSpan && event.target !== streetSpan && event.target !== publiekSpan
+                ) {
                 return
             }
-            //handle click
+            if (event.target === privateSpan || event.target === streetSpan || event.target === publiekSpan){
+                if (event.target.classList.contains("selected"))
+                {
+                    event.target.classList.remove("selected")
+                }else{
+                    event.target.classList.add("selected")
+                }
+            }
             updateStyle()
         })
 
@@ -450,6 +616,94 @@ var FilterControl = /*@__PURE__*/ (function (Control) {
     return FilterControl;
 }(Control));
 
+
+var LayerControl = /*@__PURE__*/ (function (Control) {
+    function LayerControl(opt_options) {
+        var options = opt_options || {};
+        let container = document.createElement('div')
+
+        container.setAttribute('id', 'layerFilter')
+        
+
+        let svcArea250Div = document.createElement('div')
+        svcArea250Div.id = "svcArea250"
+
+        let svcArea500Div = document.createElement('div')
+        svcArea500Div.id = "svcArea500"
+
+        let svcArea500Label = document.createElement('label500')
+        let svcArea250Label = document.createElement('label250')
+
+        svcArea500Label.setAttribute("for", "svcArea500")
+        svcArea250Label.setAttribute("for", "svcArea250")
+        
+        
+        svcArea500Label.innerText = "Afstand tot toilet 500m"
+        svcArea250Label.innerText = "Afstand tot toilet 250m"
+
+        // 250 m
+        let svc250ToggleLabel = document.createElement('label')
+        svc250ToggleLabel.classList.add("switch")
+        let  svc250ToggleCheckbox = document.createElement('input')
+        svc250ToggleCheckbox.setAttribute("id", "svc250Toggle")
+        svc250ToggleCheckbox.setAttribute("type", "checkbox")
+        svc250ToggleCheckbox.setAttribute("checked", null)
+        let  svc250Togglespan = document.createElement('span')
+        svc250Togglespan.classList.add("slider-round")
+        svc250ToggleLabel.appendChild(svc250ToggleCheckbox)
+        svc250ToggleLabel.appendChild(svc250Togglespan)
+
+        svcArea250Div.append(svcArea250Label)
+        svcArea250Div.append(svc250ToggleLabel)
+        container.append(svcArea250Div)
+
+        // 500 m 
+        let svc500ToggleLabel = document.createElement('label')
+        svc500ToggleLabel.classList.add("switch")
+        let  svc500ToggleCheckbox = document.createElement('input')
+        svc500ToggleCheckbox.setAttribute("id", "svc250Toggle")
+        svc500ToggleCheckbox.setAttribute("type", "checkbox")
+        svc500ToggleCheckbox.setAttribute("checked", null)
+        let  svc500Togglespan = document.createElement('span')
+        svc500Togglespan.classList.add("slider-round")
+        svc500ToggleLabel.appendChild(svc500ToggleCheckbox)
+        svc500ToggleLabel.appendChild(svc500Togglespan)
+
+        svcArea500Div.append(svcArea500Label)
+        svcArea500Div.append(svc500ToggleLabel)
+        container.append(svcArea500Div)
+
+        let element = document.createElement('div');
+        element.className = 'layerfilter ol-unselectable ol-control';
+        element.appendChild(container)
+
+        let body = document.getElementsByTagName('body')[0]
+        body.addEventListener('click', event => {
+            if (event.target !== svc250ToggleCheckbox && event.target !== svc500ToggleCheckbox) {
+                return
+            }
+            
+            if (event.target === svc250ToggleCheckbox){
+                vectorLayerB250.setVisible(event.target.checked)
+            }
+            if (event.target === svc500ToggleCheckbox){
+                vectorLayerB500.setVisible(event.target.checked)
+            }
+            
+        })
+
+
+        Control.call(this, {
+            element: element,
+            target: options.target,
+        });
+    }
+
+    if (Control) LayerControl.__proto__ = Control;
+    LayerControl.prototype = Object.create(Control && Control.prototype);
+    LayerControl.prototype.constructor = LayerControl;
+    return LayerControl;
+}(Control));
 
 
 
@@ -510,9 +764,11 @@ const overlay = new Overlay({
 });
 
 const map = new Map({
-    controls: defaultControls().extend([new TimeSliderControl(), new LegendControl(), new FilterControl()]),
+    controls: defaultControls().extend([new TimeSliderControl(), new LegendControl(), new FilterControl(), new LayerControl()]),
     layers: [
         brtGrijsWmtsLayer,
+        vectorLayerB500,
+        vectorLayerB250,
         vectorLayer
     ],
     target: 'map',
@@ -596,3 +852,24 @@ map.on('singleclick', function (evt) {
 });
 
 updateStyle()
+
+document.querySelector(".ol-attribution button").addEventListener("click",function(e){
+    e.preventDefault()
+    let c1 = document.getElementById("map").classList
+    let c2 = document.getElementById("infopanel").classList
+
+    if (c1.contains("collapsed")){
+        c1.remove("collapsed")
+        c1.add("expanded")
+    }else{
+        c1.remove("expanded")
+        c1.add("collapsed")
+    }
+    if (c2.contains("collapsed")){
+        c2.remove("collapsed")
+        c2.add("expanded")
+    }else{
+        c2.remove("expanded")
+        c2.add("collapsed")
+    }
+})
