@@ -229,7 +229,7 @@ function filterOwnershipValues(){
                 selected.push("public")
             }else if (span.innerText === "privaat"){
                 selected.push("private")
-            }else if (span.innerText === "straat"){
+            }else if (span.innerText === "gemeentelijk"){
                 selected.push("municipal")
             }
         }
@@ -494,7 +494,7 @@ var FilterControl = /*@__PURE__*/ (function (Control) {
         let streetSpan = document.createElement('span')
         streetSpan.id = "streetSpan"   
         streetSpan.classList.add("spanSelector")
-        streetSpan.innerText = "straat"
+        streetSpan.innerText = "gemeentelijk"
 
         // create toggle urinal
         let urinalToggleLabel = document.createElement('label')
