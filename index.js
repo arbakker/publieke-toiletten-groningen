@@ -73,8 +73,8 @@ var strokeOpen = new Stroke({ color: 'rgb(243,110,33)', width: 2 });
 
 
 
-var fillOpen = new Fill({color: 'rgba(243,110,33, 0.7)'})
-var fillClosed = new Fill({color: 'rgba(128, 128, 128, 1)'})
+var fillOpen = new Fill({ color: 'rgba(243,110,33, 0.7)' })
+var fillClosed = new Fill({ color: 'rgba(128, 128, 128, 1)' })
 
 var fill = new Fill({ color: 'red' });
 var vectorLayer = new VectorLayer({
@@ -90,14 +90,20 @@ var vectorLayer = new VectorLayer({
     })
 })
 var styleB250 = new Style({
-    fill:  new Fill({color: 'rgba(33, 150, 243, 0.3)', })
+    // rgb(28, 126, 201) rgba(33, 150, 243, 0.2)
+    fill: new Fill({ color: 'rgba(28, 126, 201, 0.2)' }),
+    stroke: new Stroke({ color: 'rgba(255,255,255, 0.2)', width: 1 })
 })
+
+
+
 var vectorLayerB250 = new VectorLayer({
     source: vectorSourceB250,
     style: styleB250
 })
 var styleB500 = new Style({
-    fill:  new Fill({color: 'rgb(130, 193, 242, 0.3)',})
+    fill: new Fill({ color: 'rgb(130, 193, 242, 0.2)', }),
+    stroke: new Stroke({ color: 'rgba(255,255,255, 0.2)', width: 1 })
 });
 
 var vectorLayerB500 = new VectorLayer({
@@ -158,10 +164,10 @@ function toiletOpen(feature, day, time) {
 var openStyle = new Style({
     image: new RegularShape({
         fill: fillOpen,
-            stroke: strokeOpen,
-            points: 4,
-            radius: 6,
-            angle: Math.PI / 4,
+        stroke: strokeOpen,
+        points: 4,
+        radius: 6,
+        angle: Math.PI / 4,
     })
 })
 
@@ -181,7 +187,6 @@ function isFeatureIncludedInFilters(feature) {
 
     if (filterUrinal()) {
         let featureVal = feature.getProperties()["urinal_only"]
-        console.log(featureVal)
         filterResult.push(filterUrinalValue() === featureVal)
     }
     if (filterFee()) {
@@ -196,11 +201,11 @@ function isFeatureIncludedInFilters(feature) {
         let featureVal = feature.getProperties()["ownership"]
         filterResult.push(filterOwnershipValues().includes(featureVal))
     }
-   
-    return filterResult.every(function(i) { return i; })
+
+    return filterResult.every(function (i) { return i; })
 }
 
-function filterOwnership(){
+function filterOwnership() {
     return document.getElementById("ownershipCheckbox").checked
 }
 
@@ -218,22 +223,22 @@ function filterAccesableValue() {
     return document.getElementById("accesableToggle").checked
 }
 
-function filterOwnershipValues(){
+function filterOwnershipValues() {
     let spans = document.querySelectorAll(".spanSelector");
-    
+
     let selected = []
     for (let i = 0; i < spans.length; ++i) {
         let span = spans[i]
-        if (span.classList.contains("selected")){
-            if (span.innerText === "publiek"){
+        if (span.classList.contains("selected")) {
+            if (span.innerText === "publiek") {
                 selected.push("public")
-            }else if (span.innerText === "privaat"){
+            } else if (span.innerText === "privaat") {
                 selected.push("private")
-            }else if (span.innerText === "gemeentelijk"){
+            } else if (span.innerText === "gemeentelijk") {
                 selected.push("municipal")
             }
         }
-      }
+    }
     return selected
 }
 
@@ -248,8 +253,8 @@ function filterUrinalValue() {
 function changeStyleToilets(day, time) {
     vectorLayer.setStyle(function (feature, resolution) {
         if (isFeatureIncludedInFilters(feature)) {
-            let checkbox = document.getElementById("timeCheckbox") 
-            if ( !checkbox ||  !checkbox.checked) {
+            let checkbox = document.getElementById("timeCheckbox")
+            if (!checkbox || !checkbox.checked) {
                 return openStyle
             }
             let open = toiletOpen(feature, day, time)
@@ -265,8 +270,8 @@ function changeStyleToilets(day, time) {
 function changeStyleB250(day, time) {
     vectorLayerB250.setStyle(function (feature, resolution) {
         if (isFeatureIncludedInFilters(feature)) {
-            let checkbox = document.getElementById("timeCheckbox") 
-            if ( !checkbox ||  !checkbox.checked) {
+            let checkbox = document.getElementById("timeCheckbox")
+            if (!checkbox || !checkbox.checked) {
                 return styleB250
             }
             let open = toiletOpen(feature, day, time)
@@ -283,8 +288,8 @@ function changeStyleB250(day, time) {
 function changeStyleB500(day, time) {
     vectorLayerB500.setStyle(function (feature, resolution) {
         if (isFeatureIncludedInFilters(feature)) {
-            let checkbox = document.getElementById("timeCheckbox") 
-            if ( !checkbox ||  !checkbox.checked) {
+            let checkbox = document.getElementById("timeCheckbox")
+            if (!checkbox || !checkbox.checked) {
                 return styleB500
             }
             let open = toiletOpen(feature, day, time)
@@ -317,9 +322,9 @@ function updateStyle() {
     label.innerHTML = `tijdstip ${timeString}`
 
     let day = document.querySelector('input[name="radioDay"]:checked').value;
-    changeStyleToilets(day,timeString)
-    changeStyleB500(day,timeString)
-    changeStyleB250(day,timeString)
+    changeStyleToilets(day, timeString)
+    changeStyleB500(day, timeString)
+    changeStyleB250(day, timeString)
 }
 
 
@@ -336,28 +341,28 @@ var TimeSliderControl = /*@__PURE__*/ (function (Control) {
         timeCheckbox.setAttribute('name', 'time')
         timeCheckbox.setAttribute("type", "checkbox")
         // timeCheckbox.setAttribute("checked", null)
-        
+
         // see https://jsfiddle.net/pga592ry/
 
-        const days = ['ma', 'di', 'wo', 'do', 'vr', 'za','zo']
+        const days = ['ma', 'di', 'wo', 'do', 'vr', 'za', 'zo']
         let dayDiv = document.createElement("div")
         dayDiv.className = "radio-toolbar"
         let first = true
-        days.forEach(function(day){
+        days.forEach(function (day) {
             // <input type="radio" id="rMa" name="rDay" value="ma" checked>
             // <label for="rMa">ma</label>
-            
+
             let rd = document.createElement('input')
             rd.setAttribute("type", "radio")
             rd.setAttribute("id", `${day}`)
             rd.setAttribute("name", "radioDay")
             rd.setAttribute("value", day)
-            
-            if (first){
+
+            if (first) {
                 rd.checked = true
-                first=false
+                first = false
             }
-            
+
             let rdLabel = document.createElement('label')
             rdLabel.innerText = day
             rdLabel.setAttribute("for", `${day}`)
@@ -386,10 +391,10 @@ var TimeSliderControl = /*@__PURE__*/ (function (Control) {
 
         let element = document.createElement('div');
         element.className = 'time-slider ol-unselectable ol-control';
-        
+
         let firstDiv = document.createElement('div')
         firstDiv.className = "inline-parent"
-    
+
         firstDiv.appendChild(timeCheckbox)
         firstDiv.appendChild(dayDiv)
         element.appendChild(firstDiv)
@@ -400,7 +405,11 @@ var TimeSliderControl = /*@__PURE__*/ (function (Control) {
             if (event.target !== timeCheckbox && event.target.name !== "radioDay") {
                 return
             }
-            if (event.target.name === "radioDay" && !timeCheckbox.checked){return}
+            if (event.target.name === "radioDay" && !timeCheckbox.checked) { return }
+            if (event.target === timeCheckbox) {
+                let legend = document.querySelector(".legend.ol-control")
+                event.target.checked ? legend.classList.remove("collapsed") : legend.classList.add("collapsed")
+            }
             //handle click
             updateStyle()
         })
@@ -416,9 +425,6 @@ var TimeSliderControl = /*@__PURE__*/ (function (Control) {
     TimeSliderControl.prototype = Object.create(Control && Control.prototype);
     TimeSliderControl.prototype.constructor = TimeSliderControl;
 
-    TimeSliderControl.prototype.handleRotateNorth = function handleRotateNorth() {
-        this.getMap().getView().setRotation(0);
-    };
 
     return TimeSliderControl;
 }(Control));
@@ -475,13 +481,13 @@ var FilterControl = /*@__PURE__*/ (function (Control) {
         accesableLabel.setAttribute("for", "toegankelijkheid")
         accesable2Label.setAttribute("for", "toegankelijkheid-2")
         feeLabel.setAttribute("for", "betaald")
-        ownershipLabel.setAttribute("for","eigendom")
+        ownershipLabel.setAttribute("for", "eigendom")
         urinalLabel.innerText = "alleen urinoir"
         accesableLabel.innerText = "rolstoel toegankelijk"
-        accesable2Label.innerText  = "rolstoel toegankelijk +"
+        accesable2Label.innerText = "rolstoel toegankelijk +"
         feeLabel.innerText = "betaald"
         ownershipLabel.innerText = "eigendom"
-        
+
         // create eigendom selector
         let publiekSpan = document.createElement('span')
         publiekSpan.id = "publiekSpan"
@@ -492,7 +498,7 @@ var FilterControl = /*@__PURE__*/ (function (Control) {
         privateSpan.classList.add("spanSelector")
         privateSpan.innerText = "privaat"
         let streetSpan = document.createElement('span')
-        streetSpan.id = "streetSpan"   
+        streetSpan.id = "streetSpan"
         streetSpan.classList.add("spanSelector")
         streetSpan.innerText = "gemeentelijk"
 
@@ -582,19 +588,19 @@ var FilterControl = /*@__PURE__*/ (function (Control) {
 
         body.addEventListener('click', event => {
             if (event.target !== feeCheckbox && event.target !== accesableCheckbox && event.target !== accesable2Checkbox && event.target !== urinalCheckbox
-                && event.target !== urinalToggleCheckbox && event.target !== feeToggleCheckbox && event.target !== accesableToggleCheckbox
+                && event.target !== ownershipCheckbox && event.target !== urinalToggleCheckbox && event.target !== feeToggleCheckbox && event.target !== accesableToggleCheckbox
                 && event.target !== accesable2ToggleCheckbox && event.target !== privateSpan && event.target !== streetSpan && event.target !== publiekSpan
-                ) {
+            ) {
                 return
             }
-            if (event.target === privateSpan || event.target === streetSpan || event.target === publiekSpan){
-                if (event.target.classList.contains("selected"))
-                {
+            if (event.target === privateSpan || event.target === streetSpan || event.target === publiekSpan) {
+                if (event.target.classList.contains("selected")) {
                     event.target.classList.remove("selected")
-                }else{
+                } else {
                     event.target.classList.add("selected")
                 }
             }
+
             updateStyle()
         })
 
@@ -609,9 +615,6 @@ var FilterControl = /*@__PURE__*/ (function (Control) {
     FilterControl.prototype = Object.create(Control && Control.prototype);
     FilterControl.prototype.constructor = FilterControl;
 
-    FilterControl.prototype.handleRotateNorth = function handleRotateNorth() {
-        this.getMap().getView().setRotation(0);
-    };
 
     return FilterControl;
 }(Control));
@@ -623,7 +626,7 @@ var LayerControl = /*@__PURE__*/ (function (Control) {
         let container = document.createElement('div')
 
         container.setAttribute('id', 'layerFilter')
-        
+
 
         let svcArea250Div = document.createElement('div')
         svcArea250Div.id = "svcArea250"
@@ -636,19 +639,19 @@ var LayerControl = /*@__PURE__*/ (function (Control) {
 
         svcArea500Label.setAttribute("for", "svcArea500")
         svcArea250Label.setAttribute("for", "svcArea250")
-        
-        
+
+
         svcArea500Label.innerText = "Afstand tot toilet 500m"
         svcArea250Label.innerText = "Afstand tot toilet 250m"
 
         // 250 m
         let svc250ToggleLabel = document.createElement('label')
         svc250ToggleLabel.classList.add("switch")
-        let  svc250ToggleCheckbox = document.createElement('input')
+        let svc250ToggleCheckbox = document.createElement('input')
         svc250ToggleCheckbox.setAttribute("id", "svc250Toggle")
         svc250ToggleCheckbox.setAttribute("type", "checkbox")
         svc250ToggleCheckbox.setAttribute("checked", null)
-        let  svc250Togglespan = document.createElement('span')
+        let svc250Togglespan = document.createElement('span')
         svc250Togglespan.classList.add("slider-round")
         svc250ToggleLabel.appendChild(svc250ToggleCheckbox)
         svc250ToggleLabel.appendChild(svc250Togglespan)
@@ -660,11 +663,11 @@ var LayerControl = /*@__PURE__*/ (function (Control) {
         // 500 m 
         let svc500ToggleLabel = document.createElement('label')
         svc500ToggleLabel.classList.add("switch")
-        let  svc500ToggleCheckbox = document.createElement('input')
+        let svc500ToggleCheckbox = document.createElement('input')
         svc500ToggleCheckbox.setAttribute("id", "svc250Toggle")
         svc500ToggleCheckbox.setAttribute("type", "checkbox")
         svc500ToggleCheckbox.setAttribute("checked", null)
-        let  svc500Togglespan = document.createElement('span')
+        let svc500Togglespan = document.createElement('span')
         svc500Togglespan.classList.add("slider-round")
         svc500ToggleLabel.appendChild(svc500ToggleCheckbox)
         svc500ToggleLabel.appendChild(svc500Togglespan)
@@ -682,14 +685,14 @@ var LayerControl = /*@__PURE__*/ (function (Control) {
             if (event.target !== svc250ToggleCheckbox && event.target !== svc500ToggleCheckbox) {
                 return
             }
-            
-            if (event.target === svc250ToggleCheckbox){
+
+            if (event.target === svc250ToggleCheckbox) {
                 vectorLayerB250.setVisible(event.target.checked)
             }
-            if (event.target === svc500ToggleCheckbox){
+            if (event.target === svc500ToggleCheckbox) {
                 vectorLayerB500.setVisible(event.target.checked)
             }
-            
+
         })
 
 
@@ -710,12 +713,39 @@ var LayerControl = /*@__PURE__*/ (function (Control) {
 var LegendControl = /*@__PURE__*/ (function (Control) {
     function LegendControl(opt_options) {
         var options = opt_options || {};
-        let canvas = document.createElement("CANVAS");
-        canvas.setAttribute('id', 'canvas')
+
 
         let element = document.createElement('div');
-        element.className = 'legend ol-unselectable ol-control';
-        element.appendChild(canvas)
+        let legend1 = document.createElement('div');
+        let legend2 = document.createElement('div');
+        legend1.classList.add("legendItem")
+        legend2.classList.add("legendItem")
+        let legendLabel1 = document.createElement('div')
+        legendLabel1.classList.add("legendLabel")
+        legendLabel1.innerText = "Open"
+
+        let legendLabel2 = document.createElement('div')
+        legendLabel2.classList.add("legendLabel")
+        legendLabel2.innerText = "Gesloten"
+
+
+        let canvas1 = document.createElement("CANVAS");
+        canvas1.setAttribute('id', 'canvas1')
+
+        let canvas2 = document.createElement("CANVAS");
+        canvas2.setAttribute('id', 'canvas2')
+
+        legend1.appendChild(canvas1)
+        legend1.appendChild(legendLabel1)
+        legend2.appendChild(canvas2)
+        legend2.appendChild(legendLabel2)
+        element.appendChild(legend1)
+        element.appendChild(legend2)
+
+
+
+        element.className = 'legend ol-unselectable ol-control collapsed';
+
 
         Control.call(this, {
             element: element,
@@ -727,9 +757,6 @@ var LegendControl = /*@__PURE__*/ (function (Control) {
     LegendControl.prototype = Object.create(Control && Control.prototype);
     LegendControl.prototype.constructor = LegendControl;
 
-    LegendControl.prototype.handleRotateNorth = function handleRotateNorth() {
-        this.getMap().getView().setRotation(0);
-    };
 
     return LegendControl;
 }(Control));
@@ -780,37 +807,32 @@ const map = new Map({
 })
 
 const generateLegend = features => {
-    const vals = [true, false]
-    const canvas = document.getElementById('canvas');
-    const canvasContext = canvas.getContext('2d')
-    var vectorContext = toContext(canvasContext, {
-        size: [180, 100]
+
+    const canvas1 = document.getElementById('canvas1');
+    const canvasContext1 = canvas1.getContext('2d')
+    var vectorContext1 = toContext(canvasContext1, {
+        size: [30, 30],
+        pixelRatio: 1
     });
-    let i = 1
-    canvasContext.font = "bold 16px Arial";
-    canvasContext.fillText("Publieke Toiletten in", 0, 20);
-    canvasContext.fillText("Groningen", 0, 40);
 
-    vals
-        .forEach(val => {
-            let newStyle
-            let label
-            if (val) {
-                newStyle = openStyle
-                label = "Open"
-            } else {
-                newStyle = closedStyle
-                label = "Gesloten"
-            }
+    // canvasContext.font = "bold 0.8em Arial";
+    // canvasContext.fillText("Publieke Toiletten in", 0, 20);
+    // canvasContext.fillText("Groningen", 0, 40);
 
 
+    vectorContext1.setStyle(openStyle);
+    vectorContext1.drawGeometry(new Point([10, 10]));
 
-            vectorContext.setStyle(newStyle);
-            vectorContext.drawGeometry(new Point([10, 50 + (30 * (i - 1))]));
-            canvasContext.font = "16px Arial";
-            canvasContext.fillText(label, 35, 70 + (35 * (i - 1)));
-            i += 1
-        });
+    const canvas2 = document.getElementById('canvas2');
+    const canvasContext2 = canvas2.getContext('2d')
+    var vectorContext2 = toContext(canvasContext2, {
+        size: [30, 30],
+        pixelRatio: 1
+    });
+    vectorContext2.setStyle(closedStyle);
+    vectorContext2.drawGeometry(new Point([10, 10]));
+
+
 };
 
 generateLegend(vectorSource.getFeatures());
@@ -836,7 +858,7 @@ map.on('singleclick', function (evt) {
     var coordinate = evt.coordinate;
     let ftAtPixel = false
     map.forEachFeatureAtPixel(evt.pixel, function (feature, layer) {
-        if (layer === vectorLayer){
+        if (layer === vectorLayer) {
             let props = feature.getProperties()
             delete props.geometry
             const table = genTableFromKVPs(props)
@@ -855,22 +877,22 @@ map.on('singleclick', function (evt) {
 
 updateStyle()
 
-document.querySelector(".ol-attribution button").addEventListener("click",function(e){
+document.querySelector(".ol-attribution button").addEventListener("click", function (e) {
     e.preventDefault()
     let c1 = document.getElementById("map").classList
     let c2 = document.getElementById("infopanel").classList
 
-    if (c1.contains("collapsed")){
+    if (c1.contains("collapsed")) {
         c1.remove("collapsed")
         c1.add("expanded")
-    }else{
+    } else {
         c1.remove("expanded")
         c1.add("collapsed")
     }
-    if (c2.contains("collapsed")){
+    if (c2.contains("collapsed")) {
         c2.remove("collapsed")
         c2.add("expanded")
-    }else{
+    } else {
         c2.remove("expanded")
         c2.add("collapsed")
     }

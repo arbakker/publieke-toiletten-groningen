@@ -252,3 +252,21 @@ body {
   #infocontent{
     padding: 2em;
   }
+
+  .legendItem{
+    height: 30px;
+    width: 150px;
+    display: flex;
+  justify-content: center;
+  align-items: center;
+  }
+
+  .legendLabel{
+    width: 100px;
+    display: inline;
+    padding-bottom: 0.5em;
+  }
+
+  .legend.ol-control.collapsed{
+    display: none;
+  }
