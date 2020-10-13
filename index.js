@@ -801,8 +801,8 @@ const map = new Map({
     target: 'map',
     overlays: [overlay],
     view: new View({
-        center: fromLonLat([6.569695, 53.211223]),
-        zoom: 13
+        center: fromLonLat([6.565695, 53.218]),
+        zoom: 15
     })
 })
 
