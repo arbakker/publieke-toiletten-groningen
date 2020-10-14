@@ -1,1407 +1,1065 @@
 {
-    "type": "FeatureCollection",
-    "name": "toiletten bijnafinal version",
-    "crs": {
-        "type": "name",
-        "properties": {
-            "name": "urn:ogc:def:crs:EPSG::3857"
-        }
+  "type": "FeatureCollection",
+  "name": "toiletten-groningen",
+  "crs": {
+    "type": "name",
+    "properties": {
+      "name": "urn:ogc:def:crs:EPSG::3857"
+    }
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "The Student Hotel",
+        "openinghours": {
+          "di": "12:00 - 22:00",
+          "do": "12:00 - 22:00",
+          "ma": "12:00 - 22:00",
+          "vr": "12:00 - 22:00",
+          "wo": "12:00 - 22:00",
+          "za": "12:00 - 22:00",
+          "zo": "12:00 - 22:00"
+        },
+        "accessibility": true,
+        "urinal_only": false,
+        "fee": true,
+        "ownership": "private",
+        "accessibility_plus": false
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          730884.2027999705,
+          7024421.880096717
+        ]
+      }
     },
-    "features": [
-        {
-            "type": "Feature",
-            "properties": {
-                "fid": 1.0,
-                "name": "The Student Hotel",
-                "size": "Cat 1: 1,65m x 2,20m or 1,90m x 1,95m",
-                "category": "place",
-                "latlong": "53.2235108,6.56573",
-                "openinghours": {
-                    "di": "16:00 - 22:00",
-                    "do": "12:00 - 23:00",
-                    "ma": "16:00 - 22:00",
-                    "vr": "12:00 - 23:00",
-                    "wo": "16:00 - 22:00",
-                    "za": "12:00 - 23:00",
-                    "zo": "12:00 - 22:00"
-                },
-                "wheelchair": 1,
-                "urinal_only": false,
-                "fee": null,
-                "layer": "Uit Mivagorpeslijst kopie",
-                "ownership": "private",
-                "acces_stre": 0
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    730884.202799970516935,
-                    7024421.880096716806293
-                ]
-            }
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Martini Hostel",
+        "openinghours": {
+          "di": "00:00 - 00:01",
+          "do": "00:00 - 00:01",
+          "ma": "00:00 - 00:01",
+          "vr": "00:00 - 00:01",
+          "wo": "00:00 - 00:01",
+          "za": "00:00 - 00:01",
+          "zo": "00:00 - 00:01"
         },
-        {
-            "type": "Feature",
-            "properties": {
-                "fid": 2.0,
-                "name": "Martini Hostel",
-                "size": "Cat 1: 1,65m x 2,20m or 1,90m x 1,95m",
-                "category": "tourism",
-                "latlong": "53.2157867,6.5713993",
-                "openinghours": {
-                    "di": "16:00 - 22:00",
-                    "do": "12:00 - 23:00",
-                    "ma": "16:00 - 22:00",
-                    "vr": "12:00 - 23:00",
-                    "wo": "16:00 - 22:00",
-                    "za": "12:00 - 23:00",
-                    "zo": "12:00 - 22:00"
-                },
-                "wheelchair": 1,
-                "urinal_only": false,
-                "fee": null,
-                "layer": "Uit Mivagorpeslijst kopie",
-                "ownership": "private",
-                "acces_stre": 0
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    731540.319879332790151,
-                    7023013.165549266152084
-                ]
-            }
+        "accessibility": true,
+        "urinal_only": false,
+        "fee": true,
+        "ownership": "private",
+        "accessibility_plus": false
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          731540.3198793328,
+          7023013.165549266
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Hema",
+        "openinghours": {
+          "di": "09:00 - 19:00",
+          "do": "09:00 - 21:00",
+          "ma": "09:00 - 19:00",
+          "vr": "09:00 - 19:00",
+          "wo": "09:00 - 19:00",
+          "za": "09:00 - 18:00",
+          "zo": "12:00 - 17:00"
         },
-        {
-            "type": "Feature",
-            "properties": {
-                "fid": 3.0,
-                "name": "Hema",
-                "size": "Cat 2: 2,50m x 2,50m",
-                "category": "shop",
-                "latlong": "53.2160827,6.5684377",
-                "openinghours": {
-                    "di": "09:00 - 19:00",
-                    "do": "09:00 - 21:00",
-                    "ma": "09:00 - 19:00",
-                    "vr": "09:00 - 19:00",
-                    "wo": "09:00 - 19:00",
-                    "za": "09:00 - 18:00",
-                    "zo": "12:00 - 17:00"
-                },
-                "wheelchair": 1,
-                "urinal_only": false,
-                "fee": null,
-                "layer": "Uit Mivagorpeslijst kopie",
-                "ownership": "private",
-                "acces_stre": 0
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    731193.203442803700455,
-                    7023035.399625306017697
-                ]
-            }
+        "accessibility": true,
+        "urinal_only": true,
+        "fee": true,
+        "ownership": "private",
+        "accessibility_plus": false
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          731193.2034428037,
+          7023035.399625306
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Grand Theatre",
+        "openinghours": {
+          "di": "09:00 - 18:00",
+          "do": "09:00 - 18:00",
+          "ma": "09:00 - 18:00",
+          "vr": "09:00 - 18:00",
+          "wo": "09:00 - 18:00",
+          "za": "09:00 - 18:00",
+          "zo": "09:00 - 18:00"
         },
-        {
-            "type": "Feature",
-            "properties": {
-                "fid": 4.0,
-                "name": "Grand Theatre",
-                "size": "Cat 1: 1,65m x 2,20m or 1,90m x 1,95m",
-                "category": "highway",
-                "latlong": "53.21860165,6.567752883569353",
-                "openinghours": {
-                    "di": "16:00 - 22:00",
-                    "do": "12:00 - 23:00",
-                    "ma": "16:00 - 22:00",
-                    "vr": "12:00 - 23:00",
-                    "wo": "16:00 - 22:00",
-                    "za": "12:00 - 23:00",
-                    "zo": "12:00 - 22:00"
-                },
-                "wheelchair": 1,
-                "urinal_only": false,
-                "fee": null,
-                "layer": "Uit Mivagorpeslijst kopie",
-                "ownership": "private",
-                "acces_stre": 0
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    731093.548095292295329,
-                    7023537.207758916541934
-                ]
-            }
+        "accessibility": true,
+        "urinal_only": false,
+        "fee": false,
+        "ownership": "private",
+        "accessibility_plus": false
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          731093.5480952923,
+          7023537.207758917
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Grandcaf� 2jongens uit Groningen",
+        "openinghours": {
+          "di": "11:00 - 23:00",
+          "do": "11:00 - 00:30",
+          "ma": "11:00 - 23:00",
+          "vr": "11:00 - 00:30",
+          "wo": "11:00 - 23:00",
+          "za": "11:00 - 00:30",
+          "zo": "11:00 - 23:00"
         },
-        {
-            "type": "Feature",
-            "properties": {
-                "fid": 5.0,
-                "name": "Grandcaf� 2jongens uit Groningen",
-                "size": "Cat 1: 1,65m x 2,20m or 1,90m x 1,95m",
-                "category": "amenity",
-                "latlong": "53.2177177,6.576427",
-                "openinghours": {
-                    "di": "16:00 - 22:00",
-                    "do": "12:00 - 23:00",
-                    "ma": "16:00 - 22:00",
-                    "vr": "12:00 - 23:00",
-                    "wo": "16:00 - 22:00",
-                    "za": "12:00 - 23:00",
-                    "zo": "12:00 - 22:00"
-                },
-                "wheelchair": 1,
-                "urinal_only": false,
-                "fee": null,
-                "layer": "Uit Mivagorpeslijst kopie",
-                "ownership": "private",
-                "acces_stre": 0
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    732086.642544833477587,
-                    7023380.835163062438369
-                ]
-            }
+        "accessibility": true,
+        "urinal_only": false,
+        "fee": true,
+        "ownership": "private",
+        "accessibility_plus": false
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          732086.6425448335,
+          7023380.835163062
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Vapiano",
+        "openinghours": {
+          "di": "16:00 - 22:00",
+          "do": "12:00 - 23:00",
+          "ma": "16:00 - 22:00",
+          "vr": "12:00 - 23:00",
+          "wo": "16:00 - 22:00",
+          "za": "12:00 - 23:00",
+          "zo": "12:00 - 22:00"
         },
-        {
-            "type": "Feature",
-            "properties": {
-                "fid": 6.0,
-                "name": "Vapiano",
-                "size": "Cat 2: 2,20m x 2,20m",
-                "category": "amenity",
-                "latlong": "53.2183788,6.5697837",
-                "openinghours": {
-                    "di": "16:00 - 22:00",
-                    "do": "12:00 - 23:00",
-                    "ma": "16:00 - 22:00",
-                    "vr": "12:00 - 23:00",
-                    "wo": "16:00 - 22:00",
-                    "za": "12:00 - 23:00",
-                    "zo": "12:00 - 22:00"
-                },
-                "wheelchair": 1,
-                "urinal_only": false,
-                "fee": null,
-                "layer": "Uit Mivagorpeslijst kopie",
-                "ownership": "private",
-                "acces_stre": 0
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    731325.640241133165546,
-                    7023481.897550830617547
-                ]
-            }
+        "accessibility": true,
+        "urinal_only": false,
+        "fee": true,
+        "ownership": "private",
+        "accessibility_plus": false
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          731325.6402411332,
+          7023481.897550831
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Gemeente Groningen",
+        "openinghours": {
+          "di": "09:00 - 17:00",
+          "do": "09:00 - 17:00",
+          "ma": "09:00 - 17:00",
+          "vr": "09:00 - 17:00",
+          "wo": "09:00 - 17:00",
+          "za": "00:00 - 00:01",
+          "zo": "00:00 - 00:01"
         },
-        {
-            "type": "Feature",
-            "properties": {
-                "fid": 7.0,
-                "name": "Gemeente Groningen",
-                "size": "Cat 1: 1,65m x 2,20m or 1,90m x 1,95m",
-                "category": "place",
-                "latlong": "53.2196777,6.5680709",
-                "openinghours": {
-                    "di": "09:00 - 17:00",
-                    "do": "09:00 - 17:00",
-                    "ma": "09:00 - 17:00",
-                    "vr": "09:00 - 17:00",
-                    "wo": "09:00 - 17:00",
-                    "za": "00:00 - 00:01",
-                    "zo": "00:00 - 00:01"
-                },
-                "wheelchair": 1,
-                "urinal_only": false,
-                "fee": 0,
-                "layer": "Uit Mivagorpeslijst kopie",
-                "ownership": "municipal",
-                "acces_stre": 0
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    731159.763067742227577,
-                    7023716.394745943136513
-                ]
-            }
+        "accessibility": true,
+        "urinal_only": false,
+        "fee": false,
+        "ownership": "municipal",
+        "accessibility_plus": false
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          731159.7630677422,
+          7023716.394745943
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Stadsschouwburg",
+        "openinghours": {
+          "di": "12:00 - 18:00",
+          "do": "12:00 - 18:00",
+          "ma": "12:00 - 18:00",
+          "vr": "12:00 - 18:00",
+          "wo": "12:00 - 18:00",
+          "za": "00:00 - 00:01",
+          "zo": "00:00 - 00:01"
         },
-        {
-            "type": "Feature",
-            "properties": {
-                "fid": 8.0,
-                "name": "Stadsschouwburg",
-                "size": "Cat 1: 1,65m x 2,20m or 1,90m x 1,95m",
-                "category": "place",
-                "latlong": "53.2207658,6.571802",
-                "openinghours": {
-                    "di": "12:00 - 18:00",
-                    "do": "12:00 - 18:00",
-                    "ma": "12:00 - 18:00",
-                    "vr": "12:00 - 18:00",
-                    "wo": "12:00 - 18:00",
-                    "za": "00:00 - 00:01",
-                    "zo": "00:00 - 00:01"
-                },
-                "wheelchair": 1,
-                "urinal_only": false,
-                "fee": null,
-                "layer": "Uit Mivagorpeslijst kopie",
-                "ownership": "'public'",
-                "acces_stre": 0
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    731569.652565192896873,
-                    7023938.479047567583621
-                ]
-            }
+        "accessibility": true,
+        "urinal_only": false,
+        "fee": false,
+        "ownership": "public",
+        "accessibility_plus": false
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          731569.6525651929,
+          7023938.479047568
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "De Oosterpoort",
+        "openinghours": {
+          "di": "12:00 - 18:00",
+          "do": "12:00 - 18:00",
+          "ma": "12:00 - 18:00",
+          "vr": "12:00 - 18:00",
+          "wo": "12:00 - 18:00",
+          "za": "00:00 - 00:01",
+          "zo": "00:00 - 00:01"
         },
-        {
-            "type": "Feature",
-            "properties": {
-                "fid": 9.0,
-                "name": "De Oosterpoort",
-                "size": "Cat 1: 1,65m x 2,20m or 1,90m x 1,95m",
-                "category": "amenity",
-                "latlong": "53.2142393,6.5759285",
-                "openinghours": {
-                    "di": "12:00 - 18:00",
-                    "do": "12:00 - 18:00",
-                    "ma": "12:00 - 18:00",
-                    "vr": "12:00 - 18:00",
-                    "wo": "12:00 - 18:00",
-                    "za": "00:00 - 00:01",
-                    "zo": "00:00 - 00:01"
-                },
-                "wheelchair": 1,
-                "urinal_only": false,
-                "fee": null,
-                "layer": "Uit Mivagorpeslijst kopie",
-                "ownership": "public",
-                "acces_stre": 0
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    732029.012444388354197,
-                    7022725.132051692344248
-                ]
-            }
+        "accessibility": true,
+        "urinal_only": false,
+        "fee": true,
+        "ownership": "public",
+        "accessibility_plus": false
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          732029.0124443884,
+          7022725.132051692
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Pathe",
+        "openinghours": {
+          "di": "10:00 - 00:00",
+          "do": "10:00 - 00:00",
+          "ma": "10:00 - 00:00",
+          "vr": "10:00 - 00:00",
+          "wo": "10:00 - 00:00",
+          "za": "10:00 - 00:00",
+          "zo": "10:00 - 00:00"
         },
-        {
-            "type": "Feature",
-            "properties": {
-                "fid": 10.0,
-                "name": "Pathe",
-                "size": "Cat 1: 1,65m x 2,20m or 1,90m x 1,95m",
-                "category": "place",
-                "latlong": "53.214312,6.5662813",
-                "openinghours": {
-                    "di": "16:00 - 22:00",
-                    "do": "12:00 - 23:00",
-                    "ma": "16:00 - 22:00",
-                    "vr": "12:00 - 23:00",
-                    "wo": "16:00 - 22:00",
-                    "za": "12:00 - 23:00",
-                    "zo": "12:00 - 22:00"
-                },
-                "wheelchair": 1,
-                "urinal_only": false,
-                "fee": null,
-                "layer": "Uit Mivagorpeslijst kopie",
-                "ownership": "private",
-                "acces_stre": 0
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    730953.465787195949815,
-                    7022744.019175073131919
-                ]
-            }
+        "accessibility": true,
+        "urinal_only": false,
+        "fee": true,
+        "ownership": "private",
+        "accessibility_plus": false
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          730953.465787196,
+          7022744.019175073
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Groninger Museum",
+        "openinghours": {
+          "di": "10:00 - 17:00",
+          "do": "10:00 - 17:00",
+          "ma": "00:00 tot 00:01",
+          "vr": "10:00 - 17:000",
+          "wo": "10:00 - 17:000",
+          "za": "10:00 - 17:00",
+          "zo": "10:00 - 17:00"
         },
-        {
-            "type": "Feature",
-            "properties": {
-                "fid": 11.0,
-                "name": "Groninger Museum",
-                "size": "Cat 1: 1,65m x 2,20m or 1,90m x 1,95m",
-                "category": "tourism",
-                "latlong": "53.2122819,6.566029044267069",
-                "openinghours": {
-                    "di": "10:00 - 17:00",
-                    "do": "10:00 - 17:00",
-                    "ma": "00:00 - 00:01",
-                    "vr": "10:00 - 17:00",
-                    "wo": "10:00 - 17:00",
-                    "za": "10:00 - 17:00",
-                    "zo": "10:00 - 17:00"
-                },
-                "wheelchair": 1,
-                "urinal_only": false,
-                "fee": null,
-                "layer": "Uit Mivagorpeslijst kopie",
-                "ownership": "public",
-                "acces_stre": 0
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    730933.940348488744348,
-                    7022361.823901592753828
-                ]
-            }
+        "accessibility": true,
+        "urinal_only": false,
+        "fee": false,
+        "ownership": "public",
+        "accessibility_plus": false
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          730933.9403484887,
+          7022361.823901593
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Juridisch Loket",
+        "openinghours": {
+          "di": "14.00 - 16.00",
+          "do": "09.00 - 11.00",
+          "ma": "09.00 - 11.00",
+          "vr": "00:00 - 00:01",
+          "wo": "00:00 - 00:01",
+          "za": "00:00 - 00:01",
+          "zo": "00:00 - 00:01"
         },
-        {
-            "type": "Feature",
-            "properties": {
-                "fid": 12.0,
-                "name": "Juridisch Loket",
-                "size": "Cat 1: 1,65m x 2,20m or 1,90m x 1,95m",
-                "category": "place",
-                "latlong": "53.2138394,6.5684144",
-                "openinghours": {
-                    "di": "14.00 - 16.00",
-                    "do": "09.00 - 11.00",
-                    "ma": "09.00 - 11.00",
-                    "vr": "00:00 - 00:01",
-                    "wo": "00:00 - 00:01",
-                    "za": "00:00 - 00:01",
-                    "zo": "00:00 - 00:01"
-                },
-                "wheelchair": 1,
-                "urinal_only": false,
-                "fee": null,
-                "layer": "Uit Mivagorpeslijst kopie",
-                "ownership": "public",
-                "acces_stre": 0
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    731211.882853374583647,
-                    7022671.928604661487043
-                ]
-            }
+        "accessibility": true,
+        "urinal_only": false,
+        "fee": false,
+        "ownership": "public",
+        "accessibility_plus": false
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          731211.8828533746,
+          7022671.9286046615
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Noordelijk Belastingkantoor",
+        "openinghours": {
+          "di": "09:00 - 17:00",
+          "do": "09:00 - 17:00",
+          "ma": "09:00 - 17:00",
+          "vr": "09:00 - 17:00",
+          "wo": "09:00 - 17:00",
+          "za": "00:00 - 00:01",
+          "zo": "00:00 - 00:01"
         },
-        {
-            "type": "Feature",
-            "properties": {
-                "fid": 13.0,
-                "name": "Noordelijk Belastingkantoor",
-                "size": "Cat 1: 1,65m x 2,20m or 1,90m x 1,95m",
-                "category": "office",
-                "latlong": "53.2145423,6.5762586",
-                "openinghours": {
-                    "di": "09:00 - 17:00",
-                    "do": "09:00 - 17:00",
-                    "ma": "09:00 - 17:00",
-                    "vr": "09:00 - 17:00",
-                    "wo": "09:00 - 17:00",
-                    "za": "00:00 - 00:01",
-                    "zo": "00:00 - 00:01"
-                },
-                "wheelchair": 1,
-                "urinal_only": false,
-                "fee": null,
-                "layer": "Uit Mivagorpeslijst kopie",
-                "ownership": "public",
-                "acces_stre": 0
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    732049.795793340425007,
-                    7022794.360269695520401
-                ]
-            }
+        "accessibility": true,
+        "urinal_only": false,
+        "fee": false,
+        "ownership": "public",
+        "accessibility_plus": false
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          732049.7957933404,
+          7022794.3602696955
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Politiebureau",
+        "openinghours": {
+          "di": "08:30 - 17:00",
+          "do": "08:30 - 17:00",
+          "ma": "08:30 - 17:00",
+          "vr": "08:30 - 17:00",
+          "wo": "08:30 - 17:00",
+          "za": "08:30 - 17:00",
+          "zo": "08:30 - 17:00"
         },
-        {
-            "type": "Feature",
-            "properties": {
-                "fid": 14.0,
-                "name": "Politiebureau",
-                "size": "Cat 1: 1,65m x 2,20m or 1,90m x 1,95m",
-                "category": "amenity",
-                "latlong": "53.21557275,6.573223244610667",
-                "openinghours": {
-                    "di": "08:30 - 17:00",
-                    "do": "08:30 - 17:00",
-                    "ma": "08:30 - 17:00",
-                    "vr": "08:30 - 17:00",
-                    "wo": "08:30 - 17:00",
-                    "za": "08:30 - 17:00",
-                    "zo": "08:30 - 17:00"
-                },
-                "wheelchair": 1,
-                "urinal_only": false,
-                "fee": null,
-                "layer": "Uit Mivagorpeslijst kopie",
-                "ownership": "public",
-                "acces_stre": 0
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    731741.322991460794583,
-                    7022956.343295272439718
-                ]
-            }
+        "accessibility": true,
+        "urinal_only": false,
+        "fee": false,
+        "ownership": "public",
+        "accessibility_plus": false
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          731741.3229914608,
+          7022956.343295272
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Academy building",
+        "openinghours": {
+          "di": "08:30 - 17:00",
+          "do": "08:30 - 17:00",
+          "ma": "08:30 - 17:00",
+          "vr": "08:30 - 17:00",
+          "wo": "08:30 - 17:00",
+          "za": "00:00 - 00:01",
+          "zo": "00:00 - 00:01"
         },
-        {
-            "type": "Feature",
-            "properties": {
-                "fid": 15.0,
-                "name": "Academy building",
-                "size": "Cat 1: 1,65m x 2,20m or 1,90m x 1,95m",
-                "category": "place",
-                "latlong": "53.219246,6.5631006",
-                "openinghours": {
-                    "di": "08:30 - 17:00",
-                    "do": "08:30 - 17:00",
-                    "ma": "08:30 - 17:00",
-                    "vr": "08:30 - 17:00",
-                    "wo": "08:30 - 17:00",
-                    "za": "00:00 - 00:01",
-                    "zo": "00:00 - 00:01"
-                },
-                "wheelchair": 1,
-                "urinal_only": false,
-                "fee": null,
-                "layer": "Uit Mivagorpeslijst kopie",
-                "ownership": "public",
-                "acces_stre": 0
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    730603.766738484962843,
-                    7023653.870161630213261
-                ]
-            }
+        "accessibility": true,
+        "urinal_only": false,
+        "fee": false,
+        "ownership": "public",
+        "accessibility_plus": false
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          730603.766738485,
+          7023653.87016163
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "University Library",
+        "openinghours": {
+          "di": "09:00 - 19:00",
+          "do": "09:00 - 21:00",
+          "ma": "09:00 - 19:00",
+          "vr": "09:00 - 19:00",
+          "wo": "09:00 - 19:00",
+          "za": "09:00 - 18:00",
+          "zo": "12:00 - 17:00"
         },
-        {
-            "type": "Feature",
-            "properties": {
-                "fid": 16.0,
-                "name": "University Library",
-                "size": "Cat 2: 2,20m x 2,20m",
-                "category": "place",
-                "latlong": "53.2189163,6.5629461",
-                "openinghours": {
-                    "di": "16:00 - 22:00",
-                    "do": "12:00 - 23:00",
-                    "ma": "16:00 - 22:00",
-                    "vr": "12:00 - 23:00",
-                    "wo": "16:00 - 22:00",
-                    "za": "12:00 - 23:00",
-                    "zo": "12:00 - 22:00"
-                },
-                "wheelchair": 1,
-                "urinal_only": false,
-                "fee": null,
-                "layer": "Uit Mivagorpeslijst kopie",
-                "ownership": "public",
-                "acces_stre": 0
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    730567.109230130561627,
-                    7023598.280770976096392
-                ]
-            }
+        "accessibility": true,
+        "urinal_only": false,
+        "fee": false,
+        "ownership": "public",
+        "accessibility_plus": false
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          730567.1092301306,
+          7023598.280770976
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Double A",
+        "openinghours": {
+          "di": "09:00 - 19:00",
+          "do": "09:00 - 21:00",
+          "ma": "09:00 - 19:00",
+          "vr": "09:00 - 19:00",
+          "wo": "09:00 - 19:00",
+          "za": "09:00 - 18:00",
+          "zo": "12:00 - 17:00"
         },
-        {
-            "type": "Feature",
-            "properties": {
-                "fid": 17.0,
-                "name": "Double A",
-                "size": null,
-                "category": "amenity",
-                "latlong": "53.214978,6.5580942",
-                "openinghours": {
-                    "di": "16:00 - 22:00",
-                    "do": "12:00 - 23:00",
-                    "ma": "16:00 - 22:00",
-                    "vr": "12:00 - 23:00",
-                    "wo": "16:00 - 22:00",
-                    "za": "12:00 - 23:00",
-                    "zo": "12:00 - 22:00"
-                },
-                "wheelchair": 1,
-                "urinal_only": false,
-                "fee": null,
-                "layer": "Uit Mivagorpeslijst kopie",
-                "ownership": "private",
-                "acces_stre": 0
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    730041.667627679300494,
-                    7022843.733852855861187
-                ]
-            }
+        "accessibility": true,
+        "urinal_only": false,
+        "fee": true,
+        "ownership": "private",
+        "accessibility_plus": false
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          730041.6676276793,
+          7022843.733852856
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Het Paleis",
+        "openinghours": {
+          "di": "09:00 - 19:00",
+          "do": "09:00 - 21:00",
+          "ma": "09:00 - 19:00",
+          "vr": "09:00 - 19:00",
+          "wo": "09:00 - 19:00",
+          "za": "09:00 - 18:00",
+          "zo": "12:00 - 17:00"
         },
-        {
-            "type": "Feature",
-            "properties": {
-                "fid": 18.0,
-                "name": "Het Paleis",
-                "size": "Cat 1: 1,65m x 2,20m or 1,90m x 1,95m",
-                "category": "amenity",
-                "latlong": "53.2259065,6.5622361",
-                "openinghours": {
-                    "di": "16:00 - 22:00",
-                    "do": "12:00 - 23:00",
-                    "ma": "16:00 - 22:00",
-                    "vr": "12:00 - 23:00",
-                    "wo": "16:00 - 22:00",
-                    "za": "12:00 - 23:00",
-                    "zo": "12:00 - 22:00"
-                },
-                "wheelchair": 1,
-                "urinal_only": false,
-                "fee": null,
-                "layer": "Uit Mivagorpeslijst kopie",
-                "ownership": "private",
-                "acces_stre": 0
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    730482.050007143174298,
-                    7024877.529975472949445
-                ]
-            }
+        "accessibility": true,
+        "urinal_only": false,
+        "fee": true,
+        "ownership": "private",
+        "accessibility_plus": false
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          730482.0500071432,
+          7024877.529975473
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Forum - Openbare Bibliotheek / Stripmuseum",
+        "openinghours": {
+          "di": "09:00 - 22:00",
+          "do": "09:00 - 22:00",
+          "ma": "09:00 - 22:00",
+          "vr": "09:00 - 22:00",
+          "wo": "09:00 - 22:00",
+          "za": "09:00 - 22:00",
+          "zo": "10:00 - 22:00"
         },
-        {
-            "type": "Feature",
-            "properties": {
-                "fid": 19.0,
-                "name": "Forum - Openbare Bibliotheek \/ Stripmuseum",
-                "size": null,
-                "category": "place",
-                "latlong": "53.2189129,6.5703118",
-                "openinghours": {
-                    "di": "09:00 - 22:00",
-                    "do": "09:00 - 22:00",
-                    "ma": "09:00 - 22:00",
-                    "vr": "09:00 - 22:00",
-                    "wo": "09:00 - 22:00",
-                    "za": "09:00 - 22:00",
-                    "zo": "10:00 - 22:00"
-                },
-                "wheelchair": 1,
-                "urinal_only": false,
-                "fee": null,
-                "layer": "Uit Mivagorpeslijst kopie",
-                "ownership": "public",
-                "acces_stre": 0
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    731381.633945057168603,
-                    7023570.653545868583024
-                ]
-            }
+        "accessibility": true,
+        "urinal_only": false,
+        "fee": false,
+        "ownership": "public",
+        "accessibility_plus": false
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          731381.6339450572,
+          7023570.653545869
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Central train station",
+        "openinghours": {
+          "di": "08:00 - 21:00",
+          "do": "08:00 - 21:00",
+          "ma": "08:00 - 21:00",
+          "vr": "08:00 - 21:00",
+          "wo": "08:00 - 21:00",
+          "za": "08:00 - 21:00",
+          "zo": "08:00 - 21:00"
         },
-        {
-            "type": "Feature",
-            "properties": {
-                "fid": 20.0,
-                "name": "Central train station",
-                "size": "Cat 2: 2,20m x 2,20m",
-                "category": "shop",
-                "latlong": "53.21096825,6.56487671523795",
-                "openinghours": {
-                    "di": "16:00 - 22:00",
-                    "do": "12:00 - 23:00",
-                    "ma": "16:00 - 22:00",
-                    "vr": "12:00 - 23:00",
-                    "wo": "16:00 - 22:00",
-                    "za": "12:00 - 23:00",
-                    "zo": "12:00 - 22:00"
-                },
-                "wheelchair": 1,
-                "urinal_only": false,
-                "fee": null,
-                "layer": "Uit Mivagorpeslijst kopie",
-                "ownership": "public",
-                "acces_stre": 0
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    730798.553583652479574,
-                    7022138.184969465248287
-                ]
-            }
+        "accessibility": true,
+        "urinal_only": false,
+        "fee": true,
+        "ownership": "public",
+        "accessibility_plus": false
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          730798.5535836525,
+          7022138.184969465
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "The International Welcome Center North",
+        "openinghours": {
+          "di": "09:00 - 17:00",
+          "do": "09:00 - 17:00",
+          "ma": "09:00 - 17:00",
+          "vr": "09:00 - 17:00",
+          "wo": "09:00 - 17:00",
+          "za": "00:00 - 00:01",
+          "zo": "00:00 - 00:01"
         },
-        {
-            "type": "Feature",
-            "properties": {
-                "fid": 21.0,
-                "name": "The International Welcome Center North",
-                "size": "Cat 1: 1,65m x 2,20m or 1,90m x 1,95m",
-                "category": "place",
-                "latlong": "53.2143194,6.5649444",
-                "openinghours": {
-                    "di": "09:00 - 17:00",
-                    "do": "09:00 - 17:00",
-                    "ma": "09:00 - 17:00",
-                    "vr": "09:00 - 17:00",
-                    "wo": "09:00 - 17:00",
-                    "za": "00:00 - 00:01",
-                    "zo": "00:00 - 00:01"
-                },
-                "wheelchair": 1,
-                "urinal_only": false,
-                "fee": 0,
-                "layer": "Uit Mivagorpeslijst kopie",
-                "ownership": "municipal",
-                "acces_stre": 0
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    730795.28079062490724,
-                    7022752.830702667124569
-                ]
-            }
+        "accessibility": true,
+        "urinal_only": false,
+        "fee": false,
+        "ownership": "municipal",
+        "accessibility_plus": false
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          730795.2807906249,
+          7022752.830702667
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "De konditorei",
+        "openinghours": {
+          "di": "10:00 - 17:00",
+          "do": "10:00 - 17:00",
+          "ma": "10:00 - 17:00",
+          "vr": "10:00 - 17:00",
+          "wo": "10:00 - 17:00",
+          "za": "00:00 - 00:01",
+          "zo": "00:00 - 00:01"
         },
-        {
-            "type": "Feature",
-            "properties": {
-                "fid": 23.0,
-                "name": "De konditorei",
-                "size": "Cat 2: 2,20m x 2,20m",
-                "category": "amenity",
-                "latlong": "53.2176516,6.5632158",
-                "openinghours": {
-                    "di": "10:00 - 17:00",
-                    "do": "10:00 - 17:00",
-                    "ma": "10:00 - 17:00",
-                    "vr": "10:00 - 17:00",
-                    "wo": "10:00 - 17:00",
-                    "za": "00:00 - 00:01",
-                    "zo": "00:00 - 00:01"
-                },
-                "wheelchair": 1,
-                "urinal_only": false,
-                "fee": null,
-                "layer": "Uit Mivagorpeslijst kopie",
-                "ownership": "private",
-                "acces_stre": 0
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    730625.054660953464918,
-                    7023364.042019119486213
-                ]
-            }
+        "accessibility": true,
+        "urinal_only": false,
+        "fee": true,
+        "ownership": "private",
+        "accessibility_plus": false
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          730625.0546609535,
+          7023364.0420191195
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Four Roses",
+        "openinghours": {
+          "di": "17:00 - 22:00",
+          "do": "17:00 - 22:00",
+          "ma": "17:00 - 22:00",
+          "vr": "17:00 - 23:00",
+          "wo": "17:00 - 22:00",
+          "za": "17:00 - 23:00",
+          "zo": "17:00 - 22:00"
         },
-        {
-            "type": "Feature",
-            "properties": {
-                "fid": 24.0,
-                "name": "Thai Jasmin",
-                "size": null,
-                "category": "amenity",
-                "latlong": "53.2155748,6.5695153",
-                "openinghours": {
-                    "di": "16:00 - 22:00",
-                    "do": "12:00 - 23:00",
-                    "ma": "16:00 - 22:00",
-                    "vr": "12:00 - 23:00",
-                    "wo": "16:00 - 22:00",
-                    "za": "12:00 - 23:00",
-                    "zo": "12:00 - 22:00"
-                },
-                "wheelchair": 1,
-                "urinal_only": false,
-                "fee": null,
-                "layer": "Uit Mivagorpeslijst kopie",
-                "ownership": "private",
-                "acces_stre": 0
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    731331.016972539480776,
-                    7022964.849405811168253
-                ]
-            }
+        "accessibility": true,
+        "urinal_only": false,
+        "fee": true,
+        "ownership": "private",
+        "accessibility_plus": false
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          731470.6895377744,
+          7023052.763068947
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Boumatoilet",
+        "openinghours": {
+          "di": "09:00 - 18:00",
+          "do": "09:00 - 21:00",
+          "ma": "13:00 - 18:00",
+          "vr": "09:00 - 18:00",
+          "wo": "09:00 - 18:00",
+          "za": "09:00 - 18:00",
+          "zo": "11:30 - 17:30"
         },
-        {
-            "type": "Feature",
-            "properties": {
-                "fid": 25.0,
-                "name": "Four Roses",
-                "size": null,
-                "category": "amenity",
-                "latlong": "53.2161024,6.5708222",
-                "openinghours": {
-                    "di": "16:00 - 22:00",
-                    "do": "12:00 - 23:00",
-                    "ma": "16:00 - 22:00",
-                    "vr": "12:00 - 23:00",
-                    "wo": "16:00 - 22:00",
-                    "za": "12:00 - 23:00",
-                    "zo": "12:00 - 22:00"
-                },
-                "wheelchair": 1,
-                "urinal_only": false,
-                "fee": null,
-                "layer": "Uit Mivagorpeslijst kopie",
-                "ownership": "private",
-                "acces_stre": 0
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    731470.689537774422206,
-                    7023052.763068947009742
-                ]
-            }
+        "accessibility": false,
+        "urinal_only": false,
+        "fee": false,
+        "ownership": "municipal",
+        "accessibility_plus": false
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          731031.1445279527,
+          7023423.39052659
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Koolhaas",
+        "openinghours": {
+          "di": "00:00 - 24:00",
+          "do": "00:00 - 24:00",
+          "ma": "00:00 - 24:00",
+          "vr": "00:00 - 24:00",
+          "wo": "00:00 - 24:00",
+          "za": "00:00 - 24:00",
+          "zo": "00:00 - 24:00"
         },
-        {
-            "type": "Feature",
-            "properties": {
-                "fid": 26.0,
-                "name": "Merckt",
-                "size": null,
-                "category": null,
-                "latlong": null,
-                "openinghours": {
-                    "di": "00:00 - 24:00",
-                    "do": "00:00 - 24:00",
-                    "ma": "00:00 - 24:00",
-                    "vr": "00:00 - 24:00",
-                    "wo": "00:00 - 24:00",
-                    "za": "00:00 - 24:00",
-                    "zo": "00:00 - 24:00"
-                },
-                "wheelchair": 1,
-                "urinal_only": false,
-                "fee": 1,
-                "layer": "toevoeging toiletten kopie",
-                "path": "C:\/Users\/Gebruiker\/Desktop\/toevoeging toiletten.json|layername=toevoeging toiletten",
-                "ownership": "private",
-                "acces_stre": 0
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    731183.396195659530349,
-                    7023541.632048618048429
-                ]
-            }
+        "accessibility": false,
+        "urinal_only": false,
+        "fee": false,
+        "ownership": "municipal",
+        "accessibility_plus": false
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          730215.8517085348,
+          7022996.248359191
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Akerk Zuidzijde",
+        "openinghours": {
+          "di": "08:00 - 21:00",
+          "do": "08:00 - 21:00",
+          "ma": "08:00 - 21:00",
+          "vr": "08:00 - 21:00",
+          "wo": "08:00 - 21:00",
+          "za": "08:00 - 21:00",
+          "zo": "08:00 - 21:00"
         },
-        {
-            "type": "Feature",
-            "properties": {
-                "fid": 27.0,
-                "name": "Boumatoilet",
-                "size": null,
-                "category": null,
-                "latlong": null,
-                "openinghours": {
-                    "di": "09:00 - 18:00",
-                    "do": "09:00 - 21:00",
-                    "ma": "13:00 - 18:00",
-                    "vr": "09:00 - 18:00",
-                    "wo": "09:00 - 18:00",
-                    "za": "09:00 - 18:00",
-                    "zo": "11:30 - 17:30"
-                },
-                "wheelchair": 0,
-                "urinal_only": false,
-                "fee": 1,
-                "layer": "toevoeging toiletten kopie",
-                "path": "C:\/Users\/Gebruiker\/Desktop\/toevoeging toiletten.json|layername=toevoeging toiletten",
-                "ownership": "municipal",
-                "acces_stre": 1
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    731031.144527952652425,
-                    7023423.390526589937508
-                ]
-            }
+        "accessibility": true,
+        "urinal_only": false,
+        "fee": false,
+        "ownership": "municipal",
+        "accessibility_plus": false
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          730612.9394645313,
+          7023146.794024356
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Urinoir Kerklaan",
+        "openinghours": {
+          "di": "00:00 - 24:00",
+          "do": "00:00 - 24:00",
+          "ma": "00:00 - 24:00",
+          "vr": "00:00 - 24:00",
+          "wo": "00:00 - 24:00",
+          "za": "00:00 - 24:00",
+          "zo": "00:00 - 24:00"
         },
-        {
-            "type": "Feature",
-            "properties": {
-                "fid": 28.0,
-                "name": "Koolhaas",
-                "size": null,
-                "category": null,
-                "latlong": null,
-                "openinghours": {
-                    "di": "00:00 - 24:00",
-                    "do": "00:00 - 24:00",
-                    "ma": "00:00 - 24:00",
-                    "vr": "00:00 - 24:00",
-                    "wo": "00:00 - 24:00",
-                    "za": "00:00 - 24:00",
-                    "zo": "00:00 - 24:00"
-                },
-                "wheelchair": 0,
-                "urinal_only": false,
-                "fee": 0,
-                "layer": "toevoeging toiletten kopie",
-                "path": "C:\/Users\/Gebruiker\/Desktop\/toevoeging toiletten.json|layername=toevoeging toiletten",
-                "ownership": "municipal",
-                "acces_stre": 1
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    730215.851708534755744,
-                    7022996.24835919123143
-                ]
-            }
+        "accessibility": false,
+        "urinal_only": true,
+        "fee": false,
+        "ownership": "municipal",
+        "accessibility_plus": false
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          729623.5652252556,
+          7024356.189081738
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Urinoir Schuitendiep/Damsterdiep",
+        "openinghours": {
+          "di": "00:00 - 24:00",
+          "do": "00:00 - 24:00",
+          "ma": "00:00 - 24:00",
+          "vr": "00:00 - 24:00",
+          "wo": "00:00 - 24:00",
+          "za": "00:00 - 24:00",
+          "zo": "00:00 - 24:00"
         },
-        {
-            "type": "Feature",
-            "properties": {
-                "fid": 29.0,
-                "name": "Akerk Zuidzijde",
-                "size": null,
-                "category": null,
-                "latlong": null,
-                "openinghours": {
-                    "di": "08:00 - 21:00",
-                    "do": "08:00 - 21:00",
-                    "ma": "08:00 - 21:00",
-                    "vr": "08:00 - 21:00",
-                    "wo": "08:00 - 21:00",
-                    "za": "08:00 - 21:00",
-                    "zo": "08:00 - 21:00"
-                },
-                "wheelchair": 1,
-                "urinal_only": false,
-                "fee": 1,
-                "layer": "toevoeging toiletten kopie",
-                "path": "C:\/Users\/Gebruiker\/Desktop\/toevoeging toiletten.json|layername=toevoeging toiletten",
-                "ownership": "municipal",
-                "acces_stre": 1
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    730612.939464531256817,
-                    7023146.794024355709553
-                ]
-            }
+        "accessibility": false,
+        "urinal_only": true,
+        "fee": false,
+        "ownership": "municipal",
+        "accessibility_plus": false
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          731825.3979635845,
+          7023247.98357808
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Urinoir Hoge der Aa/Visserstraat",
+        "openinghours": {
+          "di": "00:00 - 24:00",
+          "do": "00:00 - 24:00",
+          "ma": "00:00 - 24:00",
+          "vr": "00:00 - 24:00",
+          "wo": "00:00 - 24:00",
+          "za": "00:00 - 24:00",
+          "zo": "00:00 - 24:00"
         },
-        {
-            "type": "Feature",
-            "properties": {
-                "fid": 30.0,
-                "name": "Urinoir Kerklaan",
-                "size": null,
-                "category": null,
-                "latlong": null,
-                "openinghours": {
-                    "di": "00:00 - 24:00",
-                    "do": "00:00 - 24:00",
-                    "ma": "00:00 - 24:00",
-                    "vr": "00:00 - 24:00",
-                    "wo": "00:00 - 24:00",
-                    "za": "00:00 - 24:00",
-                    "zo": "00:00 - 24:00"
-                },
-                "wheelchair": 0,
-                "urinal_only": true,
-                "fee": 0,
-                "layer": "toevoeging toiletten kopie",
-                "path": "C:\/Users\/Gebruiker\/Desktop\/toevoeging toiletten.json|layername=toevoeging toiletten",
-                "ownership": "municipal",
-                "acces_stre": 1
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    729623.565225255559199,
-                    7024356.18908173777163
-                ]
-            }
+        "accessibility": false,
+        "urinal_only": true,
+        "fee": false,
+        "ownership": "municipal",
+        "accessibility_plus": false
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          730082.8360488614,
+          7023530.291197674
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Toilet Speelweide",
+        "openinghours": {
+          "di": "09:00 - 21:00",
+          "do": "09:00 - 21:00",
+          "ma": "09:00 - 21:00",
+          "vr": "09:00 - 21:00",
+          "wo": "09:00 - 21:00",
+          "za": "09:00 - 21:00",
+          "zo": "09:00 - 21:00"
         },
-        {
-            "type": "Feature",
-            "properties": {
-                "fid": 31.0,
-                "name": "Urinoir Schuitendiep\/Damsterdiep",
-                "size": null,
-                "category": null,
-                "latlong": null,
-                "openinghours": {
-                    "di": "00:00 - 24:00",
-                    "do": "00:00 - 24:00",
-                    "ma": "00:00 - 24:00",
-                    "vr": "00:00 - 24:00",
-                    "wo": "00:00 - 24:00",
-                    "za": "00:00 - 24:00",
-                    "zo": "00:00 - 24:00"
-                },
-                "wheelchair": 0,
-                "urinal_only": true,
-                "fee": 0,
-                "layer": "toevoeging toiletten kopie",
-                "path": "C:\/Users\/Gebruiker\/Desktop\/toevoeging toiletten.json|layername=toevoeging toiletten",
-                "ownership": "municipal",
-                "acces_stre": 1
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    731825.397963584517129,
-                    7023247.983578080311418
-                ]
-            }
+        "accessibility": false,
+        "urinal_only": false,
+        "fee": false,
+        "ownership": "municipal",
+        "accessibility_plus": false
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          729542.2849111815,
+          7024055.830865204
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Eendrachtskade",
+        "openinghours": {
+          "di": "00:00 - 24:00",
+          "do": "00:00 - 24:00",
+          "ma": "00:00 - 24:00",
+          "vr": "00:00 - 24:00",
+          "wo": "00:00 - 24:00",
+          "za": "00:00 - 24:00",
+          "zo": "00:00 - 24:00"
         },
-        {
-            "type": "Feature",
-            "properties": {
-                "fid": 32.0,
-                "name": "Urinoir Hoge der Aa\/Visserstraat",
-                "size": null,
-                "category": null,
-                "latlong": null,
-                "openinghours": {
-                    "di": "00:00 - 24:00",
-                    "do": "00:00 - 24:00",
-                    "ma": "00:00 - 24:00",
-                    "vr": "00:00 - 24:00",
-                    "wo": "00:00 - 24:00",
-                    "za": "00:00 - 24:00",
-                    "zo": "00:00 - 24:00"
-                },
-                "wheelchair": 0,
-                "urinal_only": true,
-                "fee": 0,
-                "layer": "toevoeging toiletten kopie",
-                "path": "C:\/Users\/Gebruiker\/Desktop\/toevoeging toiletten.json|layername=toevoeging toiletten",
-                "ownership": "municipal",
-                "acces_stre": 1
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    730082.83604886138346,
-                    7023530.29119767434895
-                ]
-            }
+        "accessibility": false,
+        "urinal_only": true,
+        "fee": false,
+        "ownership": "municipal",
+        "accessibility_plus": false
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          729854.2637381861,
+          7022699.6456602095
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Toilet vijver plantsoen",
+        "openinghours": {
+          "di": "09:00 - 21:00",
+          "do": "09:00 - 21:00",
+          "ma": "09:00 - 21:00",
+          "vr": "09:00 - 21:00",
+          "wo": "09:00 - 21:00",
+          "za": "09:00 - 21:00",
+          "zo": "09:00 - 21:00"
         },
-        {
-            "type": "Feature",
-            "properties": {
-                "fid": 33.0,
-                "name": "Toilet Speelweide",
-                "size": null,
-                "category": null,
-                "latlong": null,
-                "openinghours": {
-                    "di": "09:00 - 21:00",
-                    "do": "09:00 - 21:00",
-                    "ma": "09:00 - 21:00",
-                    "vr": "09:00 - 21:00",
-                    "wo": "09:00 - 21:00",
-                    "za": "09:00 - 21:00",
-                    "zo": "09:00 - 21:00"
-                },
-                "wheelchair": 0,
-                "urinal_only": false,
-                "fee": 0,
-                "layer": "toevoeging toiletten kopie",
-                "path": "C:\/Users\/Gebruiker\/Desktop\/toevoeging toiletten.json|layername=toevoeging toiletten",
-                "ownership": "municipal",
-                "acces_stre": 1
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    729542.284911181544885,
-                    7024055.830865204334259
-                ]
-            }
+        "accessibility": false,
+        "urinal_only": false,
+        "fee": false,
+        "ownership": "municipal",
+        "accessibility_plus": false
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          729781.8726732675,
+          7024571.281295474
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Publiek toilet VVV Grote Markt",
+        "openinghours": {
+          "di": "00:00 - 24:00",
+          "do": "00:00 - 24:00",
+          "ma": "00:00 - 24:00",
+          "vr": "00:00 - 24:00",
+          "wo": "00:00 - 24:00",
+          "za": "00:00 - 24:00",
+          "zo": "00:00 - 24:00"
         },
-        {
-            "type": "Feature",
-            "properties": {
-                "fid": 34.0,
-                "name": "Eendrachtskade",
-                "size": null,
-                "category": null,
-                "latlong": null,
-                "openinghours": {
-                    "di": "00:00 - 24:00",
-                    "do": "00:00 - 24:00",
-                    "ma": "00:00 - 24:00",
-                    "vr": "00:00 - 24:00",
-                    "wo": "00:00 - 24:00",
-                    "za": "00:00 - 24:00",
-                    "zo": "00:00 - 24:00"
-                },
-                "wheelchair": 0,
-                "urinal_only": true,
-                "fee": 0,
-                "layer": "toevoeging toiletten kopie",
-                "path": "C:\/Users\/Gebruiker\/Desktop\/toevoeging toiletten.json|layername=toevoeging toiletten",
-                "ownership": "municipal",
-                "acces_stre": 1
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    729854.263738186098635,
-                    7022699.645660209469497
-                ]
-            }
+        "accessibility": false,
+        "urinal_only": false,
+        "fee": true,
+        "ownership": "municipal",
+        "accessibility_plus": false
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          731127.6919224117,
+          7023475.743788929
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Urilift Peperstraat",
+        "openinghours": {
+          "di": "00:00 - 24:00",
+          "do": "00:30 - 04:00",
+          "ma": "00:00 - 24:00",
+          "vr": "00:30 - 04:00",
+          "wo": "00:00 - 24:00",
+          "za": "00:30 - 04:00",
+          "zo": "00:00 - 24:00"
         },
-        {
-            "type": "Feature",
-            "properties": {
-                "fid": 35.0,
-                "name": "Toilet vijver plantsoen",
-                "size": null,
-                "category": null,
-                "latlong": null,
-                "openinghours": {
-                    "di": "09:00 - 21:00",
-                    "do": "09:00 - 21:00",
-                    "ma": "09:00 - 21:00",
-                    "vr": "09:00 - 21:00",
-                    "wo": "09:00 - 21:00",
-                    "za": "09:00 - 21:00",
-                    "zo": "09:00 - 21:00"
-                },
-                "wheelchair": 0,
-                "urinal_only": false,
-                "fee": 0,
-                "layer": "toevoeging toiletten kopie",
-                "path": "C:\/Users\/Gebruiker\/Desktop\/toevoeging toiletten.json|layername=toevoeging toiletten",
-                "ownership": "municipal",
-                "acces_stre": 1
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    729781.872673267498612,
-                    7024571.281295473687351
-                ]
-            }
+        "accessibility": false,
+        "urinal_only": true,
+        "fee": false,
+        "ownership": "municipal",
+        "accessibility_plus": false
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          731510.4305960278,
+          7023266.239849834
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Urilift Martinikerkhof",
+        "openinghours": {
+          "di": "00:00 - 24:00",
+          "do": "00:30 - 04:00",
+          "ma": "00:00 - 24:00",
+          "vr": "00:30 - 04:00",
+          "wo": "00:00 - 24:00",
+          "za": "00:30 - 04:00",
+          "zo": "00:00 - 24:00"
         },
-        {
-            "type": "Feature",
-            "properties": {
-                "fid": 36.0,
-                "name": "Publiek toilet VVV Grote Markt",
-                "size": null,
-                "category": null,
-                "latlong": null,
-                "openinghours": {
-                    "di": "00:00 - 24:00",
-                    "do": "00:00 - 24:00",
-                    "ma": "00:00 - 24:00",
-                    "vr": "00:00 - 24:00",
-                    "wo": "00:00 - 24:00",
-                    "za": "00:00 - 24:00",
-                    "zo": "00:00 - 24:00"
-                },
-                "wheelchair": 1,
-                "urinal_only": false,
-                "fee": 1,
-                "layer": "toevoeging toiletten kopie",
-                "path": "C:\/Users\/Gebruiker\/Desktop\/toevoeging toiletten.json|layername=toevoeging toiletten",
-                "ownership": "municipal",
-                "acces_stre": 1
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    731127.69192241167184,
-                    7023475.743788928724825
-                ]
-            }
+        "accessibility": false,
+        "urinal_only": true,
+        "fee": false,
+        "ownership": "municipal",
+        "accessibility_plus": false
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          731154.9874615828,
+          7023689.194725194
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Urilift Nieuwstad",
+        "openinghours": {
+          "di": "00:00 - 24:00",
+          "do": "00:30 - 04:00",
+          "ma": "00:00 - 24:00",
+          "vr": "00:30 - 04:00",
+          "wo": "00:00 - 24:00",
+          "za": "00:30 - 04:00",
+          "zo": "00:00 - 24:00"
         },
-        {
-            "type": "Feature",
-            "properties": {
-                "fid": 37.0,
-                "name": "Urilift Peperstraat",
-                "size": null,
-                "category": null,
-                "latlong": null,
-                "openinghours": {
-                    "di": "00:00 - 24:00",
-                    "do": "00:00 - 24:00",
-                    "ma": "00:00 - 24:00",
-                    "vr": "00:00 - 24:00",
-                    "wo": "00:00 - 24:00",
-                    "za": "00:00 - 24:00",
-                    "zo": "00:00 - 24:00"
-                },
-                "wheelchair": 0,
-                "urinal_only": true,
-                "fee": 0,
-                "layer": "toevoeging toiletten kopie",
-                "path": "C:\/Users\/Gebruiker\/Desktop\/toevoeging toiletten.json|layername=toevoeging toiletten",
-                "ownership": "municipal",
-                "acces_stre": 1
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    731510.43059602775611,
-                    7023266.239849833771586
-                ]
-            }
+        "accessibility": false,
+        "urinal_only": true,
+        "fee": false,
+        "ownership": "municipal",
+        "accessibility_plus": false
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          730990.5908374131,
+          7022921.608657977
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Urinoir t/o Tuinstraat",
+        "openinghours": {
+          "di": "00:00 - 24:00",
+          "do": "00:00 - 24:00",
+          "ma": "00:00 - 24:00",
+          "vr": "00:00 - 24:00",
+          "wo": "00:00 - 24:00",
+          "za": "00:00 - 24:00",
+          "zo": "00:00 - 24:00"
         },
-        {
-            "type": "Feature",
-            "properties": {
-                "fid": 38.0,
-                "name": "Urilift Martinikerkhof",
-                "size": null,
-                "category": null,
-                "latlong": null,
-                "openinghours": {
-                    "di": "00:00 - 24:00",
-                    "do": "00:00 - 24:00",
-                    "ma": "00:00 - 24:00",
-                    "vr": "00:00 - 24:00",
-                    "wo": "00:00 - 24:00",
-                    "za": "00:00 - 24:00",
-                    "zo": "00:00 - 24:00"
-                },
-                "wheelchair": 0,
-                "urinal_only": true,
-                "fee": 0,
-                "layer": "toevoeging toiletten kopie",
-                "path": "C:\/Users\/Gebruiker\/Desktop\/toevoeging toiletten.json|layername=toevoeging toiletten",
-                "ownership": "municipal",
-                "acces_stre": 1
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    731154.987461582757533,
-                    7023689.194725194014609
-                ]
-            }
+        "accessibility": false,
+        "urinal_only": true,
+        "fee": false,
+        "ownership": "municipal",
+        "accessibility_plus": false
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          731682.0518551533,
+          7023571.099745218
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Humanitas de Globe",
+        "openinghours": {
+          "di": "12:00 - 20:00",
+          "do": "12:00 - 20:00",
+          "ma": "12:00 - 20:00",
+          "vr": "12:00 - 20:00",
+          "wo": "12:00 - 20:00",
+          "za": "00:00 - 23:59",
+          "zo": "00:00 - 23:59"
         },
-        {
-            "type": "Feature",
-            "properties": {
-                "fid": 39.0,
-                "name": "Urilift Nieuwstad",
-                "size": null,
-                "category": null,
-                "latlong": null,
-                "openinghours": {
-                    "di": "00:00 - 24:00",
-                    "do": "00:00 - 24:00",
-                    "ma": "00:00 - 24:00",
-                    "vr": "00:00 - 24:00",
-                    "wo": "00:00 - 24:00",
-                    "za": "00:00 - 24:00",
-                    "zo": "00:00 - 24:00"
-                },
-                "wheelchair": 0,
-                "urinal_only": true,
-                "fee": 0,
-                "layer": "toevoeging toiletten kopie",
-                "path": "C:\/Users\/Gebruiker\/Desktop\/toevoeging toiletten.json|layername=toevoeging toiletten",
-                "ownership": "municipal",
-                "acces_stre": 1
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    730990.590837413095869,
-                    7022921.608657976612449
-                ]
-            }
+        "accessibility": true,
+        "urinal_only": false,
+        "fee": true,
+        "ownership": "public",
+        "accessibility_plus": false
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          730535.9899275217,
+          7023088.272595611
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Simon Levelt",
+        "openinghours": {
+          "di": "08:30 - 18:00",
+          "do": "08:30 - 18:00",
+          "ma": "08:30 - 18:00",
+          "vr": "08:30 - 18:00",
+          "wo": "08:30 - 18:00",
+          "za": "09:30 - 17:30",
+          "zo": "12:00 - 17:00"
         },
-        {
-            "type": "Feature",
-            "properties": {
-                "fid": 40.0,
-                "name": "Urinoir t\/o Tuinstraat",
-                "size": null,
-                "category": null,
-                "latlong": null,
-                "openinghours": {
-                    "di": "00:00 - 24:00",
-                    "do": "00:00 - 24:00",
-                    "ma": "00:00 - 24:00",
-                    "vr": "00:00 - 24:00",
-                    "wo": "00:00 - 24:00",
-                    "za": "00:00 - 24:00",
-                    "zo": "00:00 - 24:00"
-                },
-                "wheelchair": 0,
-                "urinal_only": true,
-                "fee": 0,
-                "layer": "toevoeging toiletten kopie",
-                "path": "C:\/Users\/Gebruiker\/Desktop\/toevoeging toiletten.json|layername=toevoeging toiletten",
-                "ownership": "municipal",
-                "acces_stre": 1
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    731682.051855153287761,
-                    7023571.099745217710733
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "fid": 41.0,
-                "name": "Groot Handelsgebouw",
-                "size": null,
-                "category": null,
-                "latlong": null,
-                "openinghours": {
-                    "di": "00:00 - 24:00",
-                    "do": "00:00 - 24:00",
-                    "ma": "00:00 - 24:00",
-                    "vr": "00:00 - 24:00",
-                    "wo": "00:00 - 24:00",
-                    "za": "00:00 - 24:00",
-                    "zo": "00:00 - 24:00"
-                },
-                "wheelchair": 1,
-                "urinal_only": false,
-                "fee": 0,
-                "layer": "toevoeging toiletten kopie",
-                "path": "C:\/Users\/Gebruiker\/Desktop\/toevoeging toiletten.json|layername=toevoeging toiletten",
-                "ownership": "private",
-                "acces_stre": 0
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    731028.806818645214662,
-                    7023609.472984959371388
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "fid": 42.0,
-                "name": "Stadhuis",
-                "size": null,
-                "category": null,
-                "latlong": null,
-                "openinghours": {
-                    "di": "00:00 - 24:00",
-                    "do": "00:00 - 24:00",
-                    "ma": "00:00 - 24:00",
-                    "vr": "00:00 - 24:00",
-                    "wo": "00:00 - 24:00",
-                    "za": "00:00 - 24:00",
-                    "zo": "00:00 - 24:00"
-                },
-                "wheelchair": 1,
-                "urinal_only": false,
-                "fee": 0,
-                "layer": "toevoeging toiletten kopie",
-                "path": "C:\/Users\/Gebruiker\/Desktop\/toevoeging toiletten.json|layername=toevoeging toiletten",
-                "ownership": "municipal",
-                "acces_stre": 0
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    731029.407943895086646,
-                    7023529.175704932771623
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "fid": 44.0,
-                "name": "Humanitas de Globe",
-                "size": "Cat 2: 2,20m x 2,20m",
-                "category": null,
-                "latlong": null,
-                "openinghours": {
-                    "di": "12:00 - 20:00",
-                    "do": "12:00 - 20:00",
-                    "ma": "12:00 - 20:00",
-                    "vr": "12:00 - 20:00",
-                    "wo": "12:00 - 20:00",
-                    "za": "00:00 - 23:59",
-                    "zo": "00:00 - 23:59"
-                },
-                "wheelchair": 1,
-                "urinal_only": true,
-                "fee": 1,
-                "layer": null,
-                "path": null,
-                "ownership": "public",
-                "acces_stre": 0
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    730535.989927521673962,
-                    7023088.272595611400902
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "fid": 43.0,
-                "name": "Simon Levelt",
-                "size": "Cat 2: 2,20m x 2,20m",
-                "category": null,
-                "latlong": null,
-                "openinghours": {
-                    "di": "08:30 - 18:00",
-                    "do": "08:30 - 18:00",
-                    "ma": "08:30 - 18:00",
-                    "vr": "08:30 - 18:000",
-                    "wo": "08:30 - 18:00",
-                    "za": "09:30 - 17:30",
-                    "zo": "12:00 - 17:00"
-                },
-                "wheelchair": 1,
-                "urinal_only": false,
-                "fee": null,
-                "layer": null,
-                "path": null,
-                "ownership": "private",
-                "acces_stre": 0
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    730587.911820245441049,
-                    7023452.011129648424685
-                ]
-            }
-        }
-    ]
+        "accessibility": true,
+        "urinal_only": false,
+        "fee": true,
+        "ownership": "private",
+        "accessibility_plus": false
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          730587.9118202454,
+          7023452.011129648
+        ]
+      }
+    }
+  ]
 }

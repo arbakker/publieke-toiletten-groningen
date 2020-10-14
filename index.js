@@ -18,6 +18,8 @@ import Overlay from 'ol/Overlay';
 import toilets from './toilets.json'
 import buffer250 from './buffer_250.json'
 import buffer500 from './buffer_500.json'
+import Select from 'ol/interaction/Select';
+
 import { isTypeUnique } from 'ol/style/expressions'
 
 
@@ -69,12 +71,15 @@ var vectorSourceB500 = new VectorSource({
 
 
 var strokeClosed = new Stroke({ color: 'rgb(128, 128, 128)', width: 2 });
-var strokeOpen = new Stroke({ color: 'rgb(243,110,33)', width: 2 });
-
-
-
-var fillOpen = new Fill({ color: 'rgba(243,110,33, 0.7)' })
 var fillClosed = new Fill({ color: 'rgba(128, 128, 128, 1)' })
+
+var strokeOpen = new Stroke({ color: 'rgb(243,110,33)', width: 2 });
+var fillOpen = new Fill({ color: 'rgba(243,110,33, 0.7)' })
+
+var strokeSelected = new Stroke({ color: 'rgb(246, 255, 10)', width: 2 });
+var fillSelected = new Fill({ color: 'rgba(246, 255, 10, 0.7)' })
+
+
 
 var fill = new Fill({ color: 'red' });
 var vectorLayer = new VectorLayer({
@@ -181,6 +186,16 @@ var closedStyle = new Style({
     })
 })
 
+var selectedStyle = new Style({
+    image: new RegularShape({
+        fill: fillSelected,
+        stroke: strokeSelected,
+        points: 4,
+        radius: 6,
+        angle: Math.PI / 4,
+    })
+})
+
 
 function isFeatureIncludedInFilters(feature) {
     let filterResult = []
@@ -194,8 +209,12 @@ function isFeatureIncludedInFilters(feature) {
         filterResult.push(filterFeeValue() === featureVal)
     }
     if (filterAccesable()) {
-        let featureVal = feature.getProperties()["wheelchair"]
+        let featureVal = feature.getProperties()["accessibility"]
         filterResult.push(filterAccesableValue() === featureVal)
+    }
+    if (filterAccesablePlus()) {
+        let featureVal = feature.getProperties()["accessibility_plus"]
+        filterResult.push(filterAccesablePlusValue() === featureVal)
     }
     if (filterOwnership()) {
         let featureVal = feature.getProperties()["ownership"]
@@ -219,8 +238,16 @@ function filterFeeValue() {
 function filterAccesable() {
     return document.getElementById("accesableCheckbox").checked
 }
+
+function filterAccesablePlus() {
+    return document.getElementById("accesable2Checkbox").checked
+}
 function filterAccesableValue() {
     return document.getElementById("accesableToggle").checked
+}
+
+function filterAccesablePlusValue() {
+    return document.getElementById("accesable2Toggle").checked
 }
 
 function filterOwnershipValues() {
@@ -340,10 +367,8 @@ var TimeSliderControl = /*@__PURE__*/ (function (Control) {
         timeCheckbox.setAttribute('id', 'timeCheckbox')
         timeCheckbox.setAttribute('name', 'time')
         timeCheckbox.setAttribute("type", "checkbox")
-        // timeCheckbox.setAttribute("checked", null)
 
         // see https://jsfiddle.net/pga592ry/
-
         const days = ['ma', 'di', 'wo', 'do', 'vr', 'za', 'zo']
         let dayDiv = document.createElement("div")
         dayDiv.className = "radio-toolbar"
@@ -542,7 +567,7 @@ var FilterControl = /*@__PURE__*/ (function (Control) {
         let accesable2ToggleLabel = document.createElement('label')
         accesable2ToggleLabel.classList.add("switch")
         let accesable2ToggleCheckbox = document.createElement('input')
-        accesable2ToggleCheckbox.setAttribute("id", "accesableToggle")
+        accesable2ToggleCheckbox.setAttribute("id", "accesable2Toggle")
         accesable2ToggleCheckbox.setAttribute("type", "checkbox")
         accesable2ToggleCheckbox.setAttribute("checked", null)
         let accesable2Togglespan = document.createElement('span')
@@ -776,6 +801,7 @@ var closer = document.getElementById('popup-closer');
 closer.onclick = function () {
     overlay.setPosition(undefined);
     closer.blur();
+    select.getFeatures().clear()
     return false;
 };
 
@@ -815,11 +841,6 @@ const generateLegend = features => {
         pixelRatio: 1
     });
 
-    // canvasContext.font = "bold 0.8em Arial";
-    // canvasContext.fillText("Publieke Toiletten in", 0, 20);
-    // canvasContext.fillText("Groningen", 0, 40);
-
-
     vectorContext1.setStyle(openStyle);
     vectorContext1.drawGeometry(new Point([10, 10]));
 
@@ -839,13 +860,71 @@ generateLegend(vectorSource.getFeatures());
 
 
 function genTableFromKVPs(kvps) {
+    const keyLookup = {
+        "urinal_only": "alleen urinoir",
+        "accessibility": "rolstoel toegankelijk",
+        "accessibility_plus": "rolstoel toegankelijk +",
+        "fee": "betaald",
+        "ownership": "eigendom",
+        "name": "naam",
+        "openinghours": "openingstijden"
+    }
+    const valLookup = {
+        "true": "ja",
+        "false": "nee",
+        "private": "privaat",
+        "municipal": "gemeentelijk",
+        "public": "publiek"
+    }
     var table = document.createElement('table');
-    Object.keys(kvps).forEach(function (key, index) {
+    table.classList.add("styled-table")
+
+    const orderedKvp = {}
+    orderedKvp["name"] = kvps["name"];
+    orderedKvp["urinal_only"] = kvps["urinal_only"];
+    orderedKvp["ownership"] = kvps["ownership"];
+    orderedKvp["fee"] = kvps["fee"];
+    orderedKvp["openinghours"] = kvps["openinghours"];
+    orderedKvp["accessibility"] = kvps["accessibility"];
+    orderedKvp["accessibility_plus"] = kvps["accessibility_plus"];
+
+    Object.keys(orderedKvp).forEach(function (key, index) {
         var tr = document.createElement('tr');
         var td1 = document.createElement('td');
         var td2 = document.createElement('td');
-        td1.innerText = key
-        td2.innerText = kvps[key]
+        let val = orderedKvp[key]
+        if (Object.keys(valLookup).includes(val.toString())) {
+            td2.innerText = valLookup[val.toString()]
+        } else {
+            if (key == "openinghours") {
+                let newVal = {}
+                newVal["ma"] = val["ma"]
+                newVal["di"] = val["di"]
+                newVal["wo"] = val["wo"]
+                newVal["do"] = val["do"]
+                newVal["vr"] = val["vr"]
+                newVal["za"] = val["za"]
+                newVal["zo"] = val["zo"]
+
+                Object.keys(newVal).forEach(function (key, index) {
+                    let day = key
+                    let hours = newVal[key]
+                    var trH = document.createElement('tr');
+                    var td1H = document.createElement('td');
+                    var td2H = document.createElement('td');
+                    td1H.innerText = day
+                    td2H.innerText = hours
+                    trH.appendChild(td1H)
+                    trH.appendChild(td2H)
+                    td2.appendChild(trH)
+                })
+            } else {
+                td2.innerText = val
+            }
+
+        }
+        td1.innerText = keyLookup[key]
+
         tr.appendChild(td1)
         tr.appendChild(td2)
         table.appendChild(tr)
@@ -857,22 +936,30 @@ map.on('singleclick', function (evt) {
     content.innerHTML = ""
     var coordinate = evt.coordinate;
     let ftAtPixel = false
-    map.forEachFeatureAtPixel(evt.pixel, function (feature, layer) {
-        if (layer === vectorLayer) {
-            let props = feature.getProperties()
-            delete props.geometry
-            const table = genTableFromKVPs(props)
-            content.appendChild(table)
-            ftAtPixel = true
+    let fts = map.getFeaturesAtPixel(evt.pixel, {
+        layerFilter: function (layer) {
+            if (layer === vectorLayer) {
+                return true
+            }
+            return false
         }
     })
-    // content.innerHTML = '<p>You clicked here:</p><code>' + hdms + '</code>';
+    if (fts.length > 0) {
+        let ft = fts[0]
+        let props = ft.getProperties()
+        delete props.geometry
+        const table = genTableFromKVPs(props)
+        content.appendChild(table)
+        ftAtPixel = true
+    }
     if (ftAtPixel) {
         overlay.setPosition(coordinate);
     } else {
         overlay.setPosition(undefined);
         closer.blur();
     }
+
+
 });
 
 updateStyle()
@@ -897,3 +984,16 @@ document.querySelector(".ol-attribution button").addEventListener("click", funct
         c2.add("collapsed")
     }
 })
+
+
+var select = new Select({
+    layers: function (layer) {
+        if (layer === vectorLayer) {
+            return true
+        }
+        return false
+    },
+    style: selectedStyle
+}
+);
+map.addInteraction(select);
