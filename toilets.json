@@ -1,0 +1,1065 @@
+{
+  "type": "FeatureCollection",
+  "name": "toilets",
+  "crs": {
+    "type": "name",
+    "properties": {
+      "name": "urn:ogc:def:crs:EPSG::3857"
+    }
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "The Student Hotel",
+        "openinghours": {
+          "di": "12:00 - 22:00",
+          "do": "12:00 - 22:00",
+          "ma": "12:00 - 22:00",
+          "vr": "12:00 - 22:00",
+          "wo": "12:00 - 22:00",
+          "za": "12:00 - 22:00",
+          "zo": "12:00 - 22:00"
+        },
+        "accessibility": true,
+        "urinal_only": false,
+        "fee": true,
+        "ownership": "private",
+        "accessibility_plus": false
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          730884.2027999705,
+          7024421.880096717
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Martini Hostel",
+        "openinghours": {
+          "di": "00:00 - 00:00",
+          "do": "00:00 - 00:00",
+          "ma": "00:00 - 00:00",
+          "vr": "00:00 - 00:00",
+          "wo": "00:00 - 00:00",
+          "za": "00:00 - 00:00",
+          "zo": "00:00 - 00:00"
+        },
+        "accessibility": true,
+        "urinal_only": false,
+        "fee": true,
+        "ownership": "private",
+        "accessibility_plus": false
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          731540.3198793328,
+          7023013.165549266
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Hema",
+        "openinghours": {
+          "di": "09:00 - 19:00",
+          "do": "09:00 - 21:00",
+          "ma": "09:00 - 19:00",
+          "vr": "09:00 - 19:00",
+          "wo": "09:00 - 19:00",
+          "za": "09:00 - 18:00",
+          "zo": "12:00 - 17:00"
+        },
+        "accessibility": true,
+        "urinal_only": false,
+        "fee": true,
+        "ownership": "private",
+        "accessibility_plus": false
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          731193.2034428037,
+          7023035.399625306
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Grand Theatre",
+        "openinghours": {
+          "di": "09:00 - 18:00",
+          "do": "09:00 - 18:00",
+          "ma": "09:00 - 18:00",
+          "vr": "09:00 - 18:00",
+          "wo": "09:00 - 18:00",
+          "za": "09:00 - 18:00",
+          "zo": "09:00 - 18:00"
+        },
+        "accessibility": true,
+        "urinal_only": false,
+        "fee": false,
+        "ownership": "private",
+        "accessibility_plus": false
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          731093.5480952923,
+          7023537.207758917
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Grandcafé 2jongens uit Groningen",
+        "openinghours": {
+          "di": "11:00 - 23:00",
+          "do": "11:00 - 00:30",
+          "ma": "11:00 - 23:00",
+          "vr": "11:00 - 00:30",
+          "wo": "11:00 - 23:00",
+          "za": "11:00 - 00:30",
+          "zo": "11:00 - 23:00"
+        },
+        "accessibility": true,
+        "urinal_only": false,
+        "fee": true,
+        "ownership": "private",
+        "accessibility_plus": false
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          732086.6425448335,
+          7023380.835163062
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Vapiano",
+        "openinghours": {
+          "di": "16:00 - 22:00",
+          "do": "12:00 - 23:00",
+          "ma": "16:00 - 22:00",
+          "vr": "12:00 - 23:00",
+          "wo": "16:00 - 22:00",
+          "za": "12:00 - 23:00",
+          "zo": "12:00 - 22:00"
+        },
+        "accessibility": true,
+        "urinal_only": false,
+        "fee": true,
+        "ownership": "private",
+        "accessibility_plus": false
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          731325.6402411332,
+          7023481.897550831
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Gemeente Groningen",
+        "openinghours": {
+          "di": "09:00 - 17:00",
+          "do": "09:00 - 17:00",
+          "ma": "09:00 - 17:00",
+          "vr": "09:00 - 17:00",
+          "wo": "09:00 - 17:00",
+          "za": "00:00 - 00:00",
+          "zo": "00:00 - 00:00"
+        },
+        "accessibility": true,
+        "urinal_only": false,
+        "fee": false,
+        "ownership": "municipal",
+        "accessibility_plus": false
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          731159.7630677422,
+          7023716.394745943
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Stadsschouwburg",
+        "openinghours": {
+          "di": "12:00 - 18:00",
+          "do": "12:00 - 18:00",
+          "ma": "12:00 - 18:00",
+          "vr": "12:00 - 18:00",
+          "wo": "12:00 - 18:00",
+          "za": "00:00 - 00:00",
+          "zo": "00:00 - 00:00"
+        },
+        "accessibility": true,
+        "urinal_only": false,
+        "fee": false,
+        "ownership": "public",
+        "accessibility_plus": false
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          731569.6525651929,
+          7023938.479047568
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "De Oosterpoort",
+        "openinghours": {
+          "di": "12:00 - 18:00",
+          "do": "12:00 - 18:00",
+          "ma": "12:00 - 18:00",
+          "vr": "12:00 - 18:00",
+          "wo": "12:00 - 18:00",
+          "za": "00:00 - 00:00",
+          "zo": "00:00 - 00:00"
+        },
+        "accessibility": true,
+        "urinal_only": false,
+        "fee": true,
+        "ownership": "public",
+        "accessibility_plus": false
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          732029.0124443884,
+          7022725.132051692
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Pathe",
+        "openinghours": {
+          "di": "10:00 - 00:00",
+          "do": "10:00 - 00:00",
+          "ma": "10:00 - 00:00",
+          "vr": "10:00 - 00:00",
+          "wo": "10:00 - 00:00",
+          "za": "10:00 - 00:00",
+          "zo": "10:00 - 00:00"
+        },
+        "accessibility": true,
+        "urinal_only": false,
+        "fee": true,
+        "ownership": "private",
+        "accessibility_plus": false
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          730953.465787196,
+          7022744.019175073
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Groninger Museum",
+        "openinghours": {
+          "di": "10:00 - 17:00",
+          "do": "10:00 - 17:00",
+          "ma": "00:00 - 00:00",
+          "vr": "10:00 - 17:00",
+          "wo": "10:00 - 17:00",
+          "za": "10:00 - 17:00",
+          "zo": "10:00 - 17:00"
+        },
+        "accessibility": true,
+        "urinal_only": false,
+        "fee": false,
+        "ownership": "public",
+        "accessibility_plus": false
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          730933.9403484887,
+          7022361.823901593
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Juridisch Loket",
+        "openinghours": {
+          "di": "14.00 - 16.00",
+          "do": "09.00 - 11.00",
+          "ma": "09.00 - 11.00",
+          "vr": "00:00 - 00:00",
+          "wo": "00:00 - 00:00",
+          "za": "00:00 - 00:00",
+          "zo": "00:00 - 00:00"
+        },
+        "accessibility": true,
+        "urinal_only": false,
+        "fee": false,
+        "ownership": "public",
+        "accessibility_plus": false
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          731211.8828533746,
+          7022671.9286046615
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Noordelijk Belastingkantoor",
+        "openinghours": {
+          "di": "09:00 - 17:00",
+          "do": "09:00 - 17:00",
+          "ma": "09:00 - 17:00",
+          "vr": "09:00 - 17:00",
+          "wo": "09:00 - 17:00",
+          "za": "00:00 - 00:00",
+          "zo": "00:00 - 00:00"
+        },
+        "accessibility": true,
+        "urinal_only": false,
+        "fee": false,
+        "ownership": "public",
+        "accessibility_plus": false
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          732049.7957933404,
+          7022794.3602696955
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Politiebureau",
+        "openinghours": {
+          "di": "08:30 - 17:00",
+          "do": "08:30 - 17:00",
+          "ma": "08:30 - 17:00",
+          "vr": "08:30 - 17:00",
+          "wo": "08:30 - 17:00",
+          "za": "08:30 - 17:00",
+          "zo": "08:30 - 17:00"
+        },
+        "accessibility": true,
+        "urinal_only": false,
+        "fee": false,
+        "ownership": "public",
+        "accessibility_plus": false
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          731741.3229914608,
+          7022956.343295272
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Academy building",
+        "openinghours": {
+          "di": "08:30 - 17:00",
+          "do": "08:30 - 17:00",
+          "ma": "08:30 - 17:00",
+          "vr": "08:30 - 17:00",
+          "wo": "08:30 - 17:00",
+          "za": "00:00 - 00:00",
+          "zo": "00:00 - 00:00"
+        },
+        "accessibility": true,
+        "urinal_only": false,
+        "fee": false,
+        "ownership": "public",
+        "accessibility_plus": false
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          730603.766738485,
+          7023653.87016163
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "University Library",
+        "openinghours": {
+          "di": "09:00 - 19:00",
+          "do": "09:00 - 21:00",
+          "ma": "09:00 - 19:00",
+          "vr": "09:00 - 19:00",
+          "wo": "09:00 - 19:00",
+          "za": "09:00 - 18:00",
+          "zo": "12:00 - 17:00"
+        },
+        "accessibility": true,
+        "urinal_only": false,
+        "fee": false,
+        "ownership": "public",
+        "accessibility_plus": false
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          730567.1092301306,
+          7023598.280770976
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Double A",
+        "openinghours": {
+          "di": "09:00 - 19:00",
+          "do": "09:00 - 21:00",
+          "ma": "09:00 - 19:00",
+          "vr": "09:00 - 19:00",
+          "wo": "09:00 - 19:00",
+          "za": "09:00 - 18:00",
+          "zo": "12:00 - 17:00"
+        },
+        "accessibility": true,
+        "urinal_only": false,
+        "fee": true,
+        "ownership": "private",
+        "accessibility_plus": false
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          730041.6676276793,
+          7022843.733852856
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Het Paleis",
+        "openinghours": {
+          "di": "09:00 - 19:00",
+          "do": "09:00 - 21:00",
+          "ma": "09:00 - 19:00",
+          "vr": "09:00 - 19:00",
+          "wo": "09:00 - 19:00",
+          "za": "09:00 - 18:00",
+          "zo": "12:00 - 17:00"
+        },
+        "accessibility": true,
+        "urinal_only": false,
+        "fee": true,
+        "ownership": "private",
+        "accessibility_plus": false
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          730482.0500071432,
+          7024877.529975473
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Forum - Openbare Bibliotheek / Stripmuseum",
+        "openinghours": {
+          "di": "09:00 - 22:00",
+          "do": "09:00 - 22:00",
+          "ma": "09:00 - 22:00",
+          "vr": "09:00 - 22:00",
+          "wo": "09:00 - 22:00",
+          "za": "09:00 - 22:00",
+          "zo": "10:00 - 22:00"
+        },
+        "accessibility": true,
+        "urinal_only": false,
+        "fee": false,
+        "ownership": "public",
+        "accessibility_plus": false
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          731381.6339450572,
+          7023570.653545869
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Central train station",
+        "openinghours": {
+          "di": "08:00 - 21:00",
+          "do": "08:00 - 21:00",
+          "ma": "08:00 - 21:00",
+          "vr": "08:00 - 21:00",
+          "wo": "08:00 - 21:00",
+          "za": "08:00 - 21:00",
+          "zo": "08:00 - 21:00"
+        },
+        "accessibility": true,
+        "urinal_only": false,
+        "fee": true,
+        "ownership": "public",
+        "accessibility_plus": false
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          730798.5535836525,
+          7022138.184969465
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "The International Welcome Center North",
+        "openinghours": {
+          "di": "09:00 - 17:00",
+          "do": "09:00 - 17:00",
+          "ma": "09:00 - 17:00",
+          "vr": "09:00 - 17:00",
+          "wo": "09:00 - 17:00",
+          "za": "00:00 - 00:00",
+          "zo": "00:00 - 00:00"
+        },
+        "accessibility": true,
+        "urinal_only": false,
+        "fee": false,
+        "ownership": "municipal",
+        "accessibility_plus": false
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          730795.2807906249,
+          7022752.830702667
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "De konditorei",
+        "openinghours": {
+          "di": "10:00 - 17:00",
+          "do": "10:00 - 17:00",
+          "ma": "10:00 - 17:00",
+          "vr": "10:00 - 17:00",
+          "wo": "10:00 - 17:00",
+          "za": "00:00 - 00:00",
+          "zo": "00:00 - 00:00"
+        },
+        "accessibility": true,
+        "urinal_only": false,
+        "fee": true,
+        "ownership": "private",
+        "accessibility_plus": false
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          730625.0546609535,
+          7023364.0420191195
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Four Roses",
+        "openinghours": {
+          "di": "17:00 - 22:00",
+          "do": "17:00 - 22:00",
+          "ma": "17:00 - 22:00",
+          "vr": "17:00 - 23:00",
+          "wo": "17:00 - 22:00",
+          "za": "17:00 - 23:00",
+          "zo": "17:00 - 22:00"
+        },
+        "accessibility": true,
+        "urinal_only": false,
+        "fee": true,
+        "ownership": "private",
+        "accessibility_plus": false
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          731470.6895377744,
+          7023052.763068947
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Boumatoilet",
+        "openinghours": {
+          "di": "09:00 - 18:00",
+          "do": "09:00 - 21:00",
+          "ma": "13:00 - 18:00",
+          "vr": "09:00 - 18:00",
+          "wo": "09:00 - 18:00",
+          "za": "09:00 - 18:00",
+          "zo": "11:30 - 17:30"
+        },
+        "accessibility": false,
+        "urinal_only": false,
+        "fee": false,
+        "ownership": "municipal",
+        "accessibility_plus": false
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          731031.1445279527,
+          7023423.39052659
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Koolhaas",
+        "openinghours": {
+          "di": "00:00 - 24:00",
+          "do": "00:00 - 24:00",
+          "ma": "00:00 - 24:00",
+          "vr": "00:00 - 24:00",
+          "wo": "00:00 - 24:00",
+          "za": "00:00 - 24:00",
+          "zo": "00:00 - 24:00"
+        },
+        "accessibility": false,
+        "urinal_only": false,
+        "fee": false,
+        "ownership": "municipal",
+        "accessibility_plus": false
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          730215.8517085348,
+          7022996.248359191
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Akerk Zuidzijde",
+        "openinghours": {
+          "di": "08:00 - 21:00",
+          "do": "08:00 - 21:00",
+          "ma": "08:00 - 21:00",
+          "vr": "08:00 - 21:00",
+          "wo": "08:00 - 21:00",
+          "za": "08:00 - 21:00",
+          "zo": "08:00 - 21:00"
+        },
+        "accessibility": true,
+        "urinal_only": false,
+        "fee": false,
+        "ownership": "municipal",
+        "accessibility_plus": false
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          730612.9394645313,
+          7023146.794024356
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Urinoir Kerklaan",
+        "openinghours": {
+          "di": "00:00 - 24:00",
+          "do": "00:00 - 24:00",
+          "ma": "00:00 - 24:00",
+          "vr": "00:00 - 24:00",
+          "wo": "00:00 - 24:00",
+          "za": "00:00 - 24:00",
+          "zo": "00:00 - 24:00"
+        },
+        "accessibility": false,
+        "urinal_only": true,
+        "fee": false,
+        "ownership": "municipal",
+        "accessibility_plus": false
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          729623.5652252556,
+          7024356.189081738
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Urinoir Schuitendiep/Damsterdiep",
+        "openinghours": {
+          "di": "00:00 - 24:00",
+          "do": "00:00 - 24:00",
+          "ma": "00:00 - 24:00",
+          "vr": "00:00 - 24:00",
+          "wo": "00:00 - 24:00",
+          "za": "00:00 - 24:00",
+          "zo": "00:00 - 24:00"
+        },
+        "accessibility": false,
+        "urinal_only": true,
+        "fee": false,
+        "ownership": "municipal",
+        "accessibility_plus": false
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          731825.3979635845,
+          7023247.98357808
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Urinoir Hoge der Aa/Visserstraat",
+        "openinghours": {
+          "di": "00:00 - 24:00",
+          "do": "00:00 - 24:00",
+          "ma": "00:00 - 24:00",
+          "vr": "00:00 - 24:00",
+          "wo": "00:00 - 24:00",
+          "za": "00:00 - 24:00",
+          "zo": "00:00 - 24:00"
+        },
+        "accessibility": false,
+        "urinal_only": true,
+        "fee": false,
+        "ownership": "municipal",
+        "accessibility_plus": false
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          730082.8360488614,
+          7023530.291197674
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Toilet Speelweide",
+        "openinghours": {
+          "di": "09:00 - 21:00",
+          "do": "09:00 - 21:00",
+          "ma": "09:00 - 21:00",
+          "vr": "09:00 - 21:00",
+          "wo": "09:00 - 21:00",
+          "za": "09:00 - 21:00",
+          "zo": "09:00 - 21:00"
+        },
+        "accessibility": false,
+        "urinal_only": false,
+        "fee": false,
+        "ownership": "municipal",
+        "accessibility_plus": false
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          729542.2849111815,
+          7024055.830865204
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Eendrachtskade",
+        "openinghours": {
+          "di": "00:00 - 24:00",
+          "do": "00:00 - 24:00",
+          "ma": "00:00 - 24:00",
+          "vr": "00:00 - 24:00",
+          "wo": "00:00 - 24:00",
+          "za": "00:00 - 24:00",
+          "zo": "00:00 - 24:00"
+        },
+        "accessibility": false,
+        "urinal_only": true,
+        "fee": false,
+        "ownership": "municipal",
+        "accessibility_plus": false
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          729854.2637381861,
+          7022699.6456602095
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Toilet vijver plantsoen",
+        "openinghours": {
+          "di": "09:00 - 21:00",
+          "do": "09:00 - 21:00",
+          "ma": "09:00 - 21:00",
+          "vr": "09:00 - 21:00",
+          "wo": "09:00 - 21:00",
+          "za": "09:00 - 21:00",
+          "zo": "09:00 - 21:00"
+        },
+        "accessibility": false,
+        "urinal_only": false,
+        "fee": false,
+        "ownership": "municipal",
+        "accessibility_plus": false
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          729781.8726732675,
+          7024571.281295474
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Publiek toilet VVV Grote Markt",
+        "openinghours": {
+          "di": "00:00 - 24:00",
+          "do": "00:00 - 24:00",
+          "ma": "00:00 - 24:00",
+          "vr": "00:00 - 24:00",
+          "wo": "00:00 - 24:00",
+          "za": "00:00 - 24:00",
+          "zo": "00:00 - 24:00"
+        },
+        "accessibility": false,
+        "urinal_only": false,
+        "fee": true,
+        "ownership": "municipal",
+        "accessibility_plus": false
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          731127.6919224117,
+          7023475.743788929
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Urilift Peperstraat",
+        "openinghours": {
+          "di": "00:00 - 24:00",
+          "do": "00:30 - 04:00",
+          "ma": "00:00 - 24:00",
+          "vr": "00:30 - 04:00",
+          "wo": "00:00 - 24:00",
+          "za": "00:30 - 04:00",
+          "zo": "00:00 - 24:00"
+        },
+        "accessibility": false,
+        "urinal_only": true,
+        "fee": false,
+        "ownership": "municipal",
+        "accessibility_plus": false
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          731510.4305960278,
+          7023266.239849834
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Urilift Martinikerkhof",
+        "openinghours": {
+          "di": "00:00 - 24:00",
+          "do": "00:30 - 04:00",
+          "ma": "00:00 - 24:00",
+          "vr": "00:30 - 04:00",
+          "wo": "00:00 - 24:00",
+          "za": "00:30 - 04:00",
+          "zo": "00:00 - 24:00"
+        },
+        "accessibility": false,
+        "urinal_only": true,
+        "fee": false,
+        "ownership": "municipal",
+        "accessibility_plus": false
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          731154.9874615828,
+          7023689.194725194
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Urilift Nieuwstad",
+        "openinghours": {
+          "di": "00:00 - 24:00",
+          "do": "00:30 - 04:00",
+          "ma": "00:00 - 24:00",
+          "vr": "00:30 - 04:00",
+          "wo": "00:00 - 24:00",
+          "za": "00:30 - 04:00",
+          "zo": "00:00 - 24:00"
+        },
+        "accessibility": false,
+        "urinal_only": true,
+        "fee": false,
+        "ownership": "municipal",
+        "accessibility_plus": false
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          730990.5908374131,
+          7022921.608657977
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Urinoir t/o Tuinstraat",
+        "openinghours": {
+          "di": "00:00 - 24:00",
+          "do": "00:00 - 24:00",
+          "ma": "00:00 - 24:00",
+          "vr": "00:00 - 24:00",
+          "wo": "00:00 - 24:00",
+          "za": "00:00 - 24:00",
+          "zo": "00:00 - 24:00"
+        },
+        "accessibility": false,
+        "urinal_only": true,
+        "fee": false,
+        "ownership": "municipal",
+        "accessibility_plus": false
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          731682.0518551533,
+          7023571.099745218
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Humanitas de Globe",
+        "openinghours": {
+          "di": "12:00 - 20:00",
+          "do": "12:00 - 20:00",
+          "ma": "12:00 - 20:00",
+          "vr": "12:00 - 20:00",
+          "wo": "12:00 - 20:00",
+          "za": "00:00 - 23:59",
+          "zo": "00:00 - 23:59"
+        },
+        "accessibility": true,
+        "urinal_only": false,
+        "fee": true,
+        "ownership": "public",
+        "accessibility_plus": false
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          730535.9899275217,
+          7023088.272595611
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Simon Levelt",
+        "openinghours": {
+          "di": "08:30 - 18:00",
+          "do": "08:30 - 18:00",
+          "ma": "08:30 - 18:00",
+          "vr": "08:30 - 18:00",
+          "wo": "08:30 - 18:00",
+          "za": "09:30 - 17:30",
+          "zo": "12:00 - 17:00"
+        },
+        "accessibility": true,
+        "urinal_only": false,
+        "fee": true,
+        "ownership": "private",
+        "accessibility_plus": false
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          730587.9118202454,
+          7023452.011129648
+        ]
+      }
+    }
+  ]
+}
