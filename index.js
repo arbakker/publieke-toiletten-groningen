@@ -18,6 +18,7 @@ import Overlay from 'ol/Overlay';
 import toilets from './toilets.json'
 import buffer250 from './buffer_250.json'
 import buffer500 from './buffer_500.json'
+import werkgebied from './werkgebied.json'
 import Select from 'ol/interaction/Select';
 
 import { isTypeUnique } from 'ol/style/expressions'
@@ -63,6 +64,10 @@ var vectorSource = new VectorSource({
 
 var vectorSourceB250 = new VectorSource({
     features: new GeoJSON().readFeatures(buffer250),
+})
+
+var vectorSourceWerkgebied = new VectorSource({
+    features: new GeoJSON().readFeatures(werkgebied),
 })
 
 var vectorSourceB500 = new VectorSource({
@@ -114,6 +119,17 @@ var styleB500 = new Style({
 var vectorLayerB500 = new VectorLayer({
     source: vectorSourceB500,
     style: styleB500
+})
+
+var vectorLayerWerkgebied = new VectorLayer({
+    source: vectorSourceWerkgebied,
+    style: new Style({
+        stroke: new Stroke({ 
+            color: 'rgba(0,0,0, 0.5)',
+            width: 2,
+            lineDash: [.1, 7]
+         })
+    })
 })
 
 
@@ -189,10 +205,10 @@ var closedStyle = new Style({
 
 var selectedStyle = new Style({
     image: new RegularShape({
-        fill: fillSelected,
-        stroke: strokeSelected,
+        fill: fillOpen,
+        stroke: strokeOpen,
         points: 4,
-        radius: 6,
+        radius: 10,
         angle: Math.PI / 4,
     })
 })
@@ -514,8 +530,8 @@ var FilterControl = /*@__PURE__*/ (function (Control) {
         feeLabel.setAttribute("for", "betaald")
         ownershipLabel.setAttribute("for", "eigendom")
         urinalLabel.innerText = "alleen urinoir"
-        accesableLabel.innerText = "rolstoel toegankelijk"
-        accesable2Label.innerText = "rolstoel toegankelijk +"
+        accesableLabel.innerText = "rolstoeltoegankelijk -"
+        accesable2Label.innerText = "rolstoeltoegankelijk"
         feeLabel.innerText = "betaald"
         ownershipLabel.innerText = "eigendom"
 
@@ -828,6 +844,7 @@ const map = new Map({
     controls: defaultControls().extend([new TimeSliderControl(), new LegendControl(), new FilterControl(), new LayerControl()]),
     layers: [
         brtGrijsWmtsLayer,
+        vectorLayerWerkgebied,
         vectorLayerB500,
         vectorLayerB250,
         vectorLayer
@@ -922,6 +939,9 @@ function genTableFromKVPs(kvps) {
                     var td1H = document.createElement('td');
                     var td2H = document.createElement('td');
                     td1H.innerText = day
+                    if (hours === "00:00 - 00:00"){
+                        hours = "gesloten"
+                    }
                     td2H.innerText = hours
                     trH.appendChild(td1H)
                     trH.appendChild(td2H)
