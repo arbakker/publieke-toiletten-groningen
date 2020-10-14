@@ -674,8 +674,8 @@ var LayerControl = /*@__PURE__*/ (function (Control) {
         svcArea250Label.setAttribute("for", "svcArea250")
 
 
-        svcArea500Label.innerText = "Afstand tot toilet 500m"
-        svcArea250Label.innerText = "Afstand tot toilet 250m"
+        svcArea500Label.innerText = "servicegebied 500m"
+        svcArea250Label.innerText = "servicegebied 250m"
 
         // 250 m
         let svc250ToggleLabel = document.createElement('label')
