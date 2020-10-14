@@ -364,7 +364,7 @@ var TimeSliderControl = /*@__PURE__*/ (function (Control) {
         let body = document.getElementsByTagName('body')[0]
 
         let timeCheckbox = document.createElement('input')
-
+        timeCheckbox.classList.add("filterCheckbox")
         timeCheckbox.setAttribute('id', 'timeCheckbox')
         timeCheckbox.setAttribute('name', 'time')
         timeCheckbox.setAttribute("type", "checkbox")
@@ -479,6 +479,11 @@ var FilterControl = /*@__PURE__*/ (function (Control) {
         let accesable2Checkbox = document.createElement('input')
         let feeCheckbox = document.createElement('input')
         let ownershipCheckbox = document.createElement('input')
+        urinalCheckbox.classList.add("filterCheckbox")
+        accesableCheckbox.classList.add("filterCheckbox")
+        accesable2Checkbox.classList.add("filterCheckbox")
+        feeCheckbox.classList.add("filterCheckbox")
+        ownershipCheckbox.classList.add("filterCheckbox")
 
 
         urinalCheckbox.setAttribute('id', 'urinalCheckbox')
@@ -526,6 +531,8 @@ var FilterControl = /*@__PURE__*/ (function (Control) {
         let streetSpan = document.createElement('span')
         streetSpan.id = "streetSpan"
         streetSpan.classList.add("spanSelector")
+        streetSpan.classList.add("selected")
+        
         streetSpan.innerText = "gemeentelijk"
 
         // create toggle urinal

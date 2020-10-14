@@ -293,3 +293,8 @@ body {
       right: 0.8em;
       color: #2196F3 ;
   }
+
+  .filterCheckbox{
+    margin-right:1em;
+    transform: scale(1.2);
+  }
