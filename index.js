@@ -972,7 +972,7 @@ map.on('singleclick', function (evt) {
 });
 
 updateStyle()
-
+document.querySelector(".ol-attribution button").title = "meer informatie"
 document.querySelector(".ol-attribution button").addEventListener("click", function (e) {
     e.preventDefault()
     let c1 = document.getElementById("map").classList

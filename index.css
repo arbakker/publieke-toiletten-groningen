@@ -298,3 +298,10 @@ body {
     margin-right:1em;
     transform: scale(1.2);
   }
+
+
+  .ol-attribution.ol-control{
+    transform: scale(2);
+    bottom: 1.5em;
+    right: 1.5em;
+  }
