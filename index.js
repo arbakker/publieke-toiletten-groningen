@@ -208,7 +208,7 @@ var selectedStyle = new Style({
         fill: fillOpen,
         stroke: strokeOpen,
         points: 4,
-        radius: 10,
+        radius: 6,
         angle: Math.PI / 4,
     })
 })
