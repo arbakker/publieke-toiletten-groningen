@@ -836,7 +836,8 @@ const map = new Map({
     overlays: [overlay],
     view: new View({
         center: fromLonLat([6.565695, 53.218]),
-        zoom: 15
+        zoom: 15,
+        extent: [724881.0031,7019154.9797,736337.0027,7028098.1120]
     })
 })
 
