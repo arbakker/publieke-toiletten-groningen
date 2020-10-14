@@ -76,7 +76,7 @@
           "zo": "12:00 - 17:00"
         },
         "accessibility": true,
-        "urinal_only": true,
+        "urinal_only": false,
         "fee": true,
         "ownership": "private",
         "accessibility_plus": false
@@ -286,8 +286,8 @@
           "di": "10:00 - 17:00",
           "do": "10:00 - 17:00",
           "ma": "00:00 - 00:01",
-          "vr": "10:00 - 17:000",
-          "wo": "10:00 - 17:000",
+          "vr": "10:00 - 17:00",
+          "wo": "10:00 - 17:00",
           "za": "10:00 - 17:00",
           "zo": "10:00 - 17:00"
         },
