@@ -71,7 +71,7 @@ var vectorSourceB500 = new VectorSource({
 
 
 var strokeClosed = new Stroke({ color: 'rgb(128, 128, 128)', width: 2 });
-var fillClosed = new Fill({ color: 'rgba(128, 128, 128, 1)' })
+var fillClosed = new Fill({ color: 'rgba(128, 128, 128, 0.7)' })
 
 var strokeOpen = new Stroke({ color: 'rgb(243,110,33)', width: 2 });
 var fillOpen = new Fill({ color: 'rgba(243,110,33, 0.7)' })
